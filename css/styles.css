@@ -47,6 +47,20 @@ body {
   letter-spacing: 1px;
 }
 
+.team--names {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+}
+
+.team-a__name,
+.team-b__name {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+}
+
 .flex-2-row {
   display: flex;
   width: 100vw;
@@ -66,7 +80,7 @@ body {
   border: 1px solid black;
   height: 200px;
   background: white;
-  color: #008974;
+  color: black;
   font-size: 1.7rem;
 }
 
@@ -84,7 +98,9 @@ body {
 
 .dialog-box {
   position: absolute;
-  top: 10vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   right: 10vw;
   width: 80vw;
