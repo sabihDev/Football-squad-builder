@@ -3,40 +3,57 @@ import { Hide, Show, AddClickListener } from './Reuseables.js'
 //Classes
 
 class Player {
-    constructor(button,name, height, defence,physique,drrible,pace,mainFoot) {
+    constructor(button, name, height, defence, physique, drrible, pace, mainFoot) {
         this.button = button;
         this.name = name;
         this.height = height;
         this.physique = defence;
-        this.defence=physique;
-        this.drrible=drrible;
-        this.pace=pace;
+        this.defence = physique;
+        this.drrible = drrible;
+        this.pace = pace;
         this.mainFoot = mainFoot;
         this.SetValues();
     }
 
-    
 
-    SetValues(){
+
+    SetValues() {
         let playerProperties = {
-            propertyPlayerName : this.button.parentElement.childNodes[3].childNodes[1],
-            propertyPlayerHeight : this.button.parentElement.childNodes[5].childNodes[1].childNodes[1],
-            propertyPlayerPhyscique : this.button.parentElement.childNodes[5].childNodes[3].childNodes[1],
-            propertyPlayerDef : this.button.parentElement.childNodes[5].childNodes[5].childNodes[1],
-            propertyPlayerDrrible : this.button.parentElement.childNodes[5].childNodes[7].childNodes[1],
-            propertyPlayerPace : this.button.parentElement.childNodes[5].childNodes[9].childNodes[1],
-            propertyPlayerMainFoot : this.button.parentElement.childNodes[5].childNodes[11].childNodes[1],
+            propertyPlayerName: this.button.parentElement.childNodes[3].childNodes[1],
+            propertyPlayerHeight: this.button.parentElement.childNodes[5].childNodes[1].childNodes[1],
+            propertyPlayerPhyscique: this.button.parentElement.childNodes[5].childNodes[3].childNodes[1],
+            propertyPlayerDef: this.button.parentElement.childNodes[5].childNodes[5].childNodes[1],
+            propertyPlayerDrrible: this.button.parentElement.childNodes[5].childNodes[7].childNodes[1],
+            propertyPlayerPace: this.button.parentElement.childNodes[5].childNodes[9].childNodes[1],
+            propertyPlayerMainFoot: this.button.parentElement.childNodes[5].childNodes[11].childNodes[1],
         };
 
-        playerProperties.propertyPlayerName.value = this.name;
-        playerProperties.propertyPlayerHeight.value = this.height;
-        playerProperties.propertyPlayerPhyscique.value = this.physique;
-        playerProperties.propertyPlayerDef.value = this.defence;
-        playerProperties.propertyPlayerDrrible.value = this.drrible;
-        playerProperties.propertyPlayerPace.value = this.pace;
-        playerProperties.propertyPlayerMainFoot.value = this.mainFoot;
-        playerProperties.propertyPlayerHeight.parentElement.classList.remove(playerProperties.propertyPlayerHeight.parentElement.classList[1]);
-        console.log(playerProperties.propertyPlayerName.value);
+        playerProperties.propertyPlayerName.textContent = this.name;
+        playerProperties.propertyPlayerHeight.textContent = this.height;
+        playerProperties.propertyPlayerPhyscique.textContent = this.physique;
+        playerProperties.propertyPlayerDef.textContent = this.defence;
+        playerProperties.propertyPlayerDrrible.textContent = this.drrible;
+        playerProperties.propertyPlayerPace.textContent = this.pace;
+        playerProperties.propertyPlayerMainFoot.textContent = this.mainFoot;
+
+        playerProperties.propertyPlayerName.parentElement.classList.remove("hidden");
+        playerProperties.propertyPlayerName.parentElement.parentElement.style.background = 'none';
+        playerProperties.propertyPlayerName.parentElement.parentElement.style.border = 'none';
+        playerProperties.propertyPlayerName.parentElement.parentElement.style.color = 'white';
+        playerProperties.propertyPlayerName.parentElement.style.padding = '0 1rem';
+
+        playerProperties.propertyPlayerName.parentElement.onmouseover = () => {
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.remove("hidden");
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.background = 'none';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.color = 'white';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.padding = '1rem';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform = 'translateY(0)';
+        }
+
+        playerProperties.propertyPlayerName.parentElement.onmouseout = () => {
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.add("hidden");
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform='translateY(-100%)';
+        }
     }
 }
 
@@ -146,7 +163,6 @@ playerAdditionButton.forEach(element => {
         submitPlayerPropsButton.onclick = () => {
             Hide(playersAdditionForm);
             Hide(element);
-            
 
             let playerInputs = {
                 inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
@@ -168,6 +184,14 @@ playerAdditionButton.forEach(element => {
                 playerInputs.inputPlayerPace.value,
                 playerInputs.inputPlayerMainFoot.value,
             );
+
+            playerInputs.inputPlayerName.value = "";
+            playerInputs.inputPlayerHeight.value = "";
+            playerInputs.inputPlayerDef.value = "";
+            playerInputs.inputPlayerPhy.value = "";
+            playerInputs.inputPlayerPace.value = "";
+            playerInputs.inputPlayerDrrible.value = "";
+            playerInputs.inputPlayerMainFoot.value = "";
         };
     };
 });
