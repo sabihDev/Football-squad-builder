@@ -80,18 +80,9 @@ body {
 .player {
   border: 1px solid black;
   height: 200px;
-  background: white;
-  color: black;
+  color: white;
   font-size: 1.7rem;
   transition: all 150s ease-in;
-}
-
-.player .player-props.hidden {
-  transform: translateY(-100%);
-}
-
-.player .player-props {
-  transform: translateY(0);
 }
 
 .add-player-btn {

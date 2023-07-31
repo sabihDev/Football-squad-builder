@@ -44,15 +44,15 @@ class Player {
 
         playerProperties.propertyPlayerName.parentElement.onmouseover = () => {
             playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.remove("hidden");
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.background = 'none';
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.color = 'white';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.background = 'white';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.color = 'black';
             playerProperties.propertyPlayerHeight.parentElement.parentElement.style.padding = '1rem';
             playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform = 'translateY(0)';
         }
 
         playerProperties.propertyPlayerName.parentElement.onmouseout = () => {
             playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.add("hidden");
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform='translateY(-100%)';
+            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform = 'translateY(-100%)';
         }
     }
 }
