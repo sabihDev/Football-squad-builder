@@ -80,7 +80,8 @@ body {
 .player {
   border: 1px solid black;
   height: 200px;
-  color: white;
+  background: #008974;
+  color:black;
   font-size: 1.7rem;
   transition: all 150s ease-in;
 }
