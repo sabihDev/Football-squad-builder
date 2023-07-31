@@ -85,6 +85,19 @@ body {
   transition: all 150s ease-in;
 }
 
+.tooltip-text {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.tooltip:hover + .tooltip-text {
+  display: block;
+}
+
 .add-player-btn {
   position: relative;
   top: 5%;

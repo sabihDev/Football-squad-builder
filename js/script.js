@@ -42,18 +42,27 @@ class Player {
         playerProperties.propertyPlayerName.parentElement.parentElement.style.color = 'white';
         playerProperties.propertyPlayerName.parentElement.style.padding = '0 1rem';
 
-        playerProperties.propertyPlayerName.parentElement.onmouseover = () => {
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.remove("hidden");
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.background = 'white';
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.color = 'black';
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.padding = '1rem';
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform = 'translateY(0)';
-        }
 
-        playerProperties.propertyPlayerName.parentElement.onmouseout = () => {
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.add("hidden");
-            playerProperties.propertyPlayerHeight.parentElement.parentElement.style.Transform = 'translateY(-100%)';
-        }
+        const buttons = document.querySelectorAll('.tooltip');
+        buttons.forEach((button) => {
+            const tooltips = document.querySelectorAll('.tooltip-text');
+
+            tooltips.forEach((tooltip) => {
+                document.addEventListener('mousemove', (event) => {
+                    const mouseX = event.clientX;
+                    const mouseY = event.clientY;
+                    tooltip.style.left = mouseX + 'px';
+                    tooltip.style.top = mouseY + 20 + 'px'; // Add an offset to prevent overlapping
+                });
+                button.addEventListener('mouseover', () => {
+                    tooltip.style.display = 'block';
+                });
+    
+                button.addEventListener('mouseout', () => {
+                    tooltip.style.display = 'none';
+                });
+            })
+        })
     }
 }
 
@@ -97,6 +106,7 @@ const teamBPlayersContainer = document.querySelector('.team-b');
 const teamAName = document.querySelector('.team-a__name');
 const teamBName = document.querySelector('.team-b__name');
 const submitPlayerPropsButton = document.querySelector('#players-form__submit-btn');
+
 
 //Input Text Values
 const playersAdditionForm = document.querySelector('.players-addition');
