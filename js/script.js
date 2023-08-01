@@ -1,4 +1,4 @@
-import { Hide, Show, AddClickListener } from './Reuseables.js'
+import { Hide, Show, AddClickListener, ValidateInteger, GetParentInHierarchy } from './Reuseables.js'
 
 //Classes
 
@@ -34,12 +34,13 @@ class Player {
         playerProperties.propertyPlayerPace.textContent = this.pace;
         playerProperties.propertyPlayerMainFoot.textContent = this.mainFoot;
 
-        playerProperties.propertyPlayerName.parentElement.classList.remove("hidden");
-        playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.remove("hidden");
-        playerProperties.propertyPlayerName.parentElement.parentElement.style.background = 'none';
-        playerProperties.propertyPlayerName.parentElement.parentElement.style.border = 'none';
-        playerProperties.propertyPlayerName.parentElement.parentElement.style.color = 'white';
-        playerProperties.propertyPlayerName.parentElement.style.padding = '0 1rem';
+        Show(GetParentInHierarchy(1, playerProperties.propertyPlayerName));
+        Show(GetParentInHierarchy(2, playerProperties.propertyPlayerHeight));
+        GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.background = 'none';
+        GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.border = 'none';
+        GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.color = 'white';
+        GetParentInHierarchy(1, playerProperties.propertyPlayerName).style.padding = 
+        '0 1rem';
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
@@ -173,6 +174,7 @@ playerAdditionButton.forEach(element => {
     element.onclick = () => {
 
         playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
+        console.log(playersAdditionForm.classList)
         submitPlayerPropsButton.onclick = () => {
 
             let playerInputs = {
@@ -186,8 +188,12 @@ playerAdditionButton.forEach(element => {
             }
 
             function AllNumeric() {
-                var numbers = /^[0-9]+$/;
-                if ((playerInputs.inputPlayerDef.value.match(numbers)) && (playerInputs.inputPlayerDrrible.value.match(numbers)) && (playerInputs.inputPlayerPhy.value.match(numbers)) && (playerInputs.inputPlayerPace.value.match(numbers)) && (playerInputs.inputPlayerHeight.value.match(numbers))) {
+                if (
+                    (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
+                    (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
+                    (ValidateInteger(playerInputs.inputPlayerPhy.value)) && 
+                    (ValidateInteger(playerInputs.inputPlayerPace.value)) && 
+                    (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
                     alert('Your Registration number has accepted....');
                     PlayerAdded();
                 }
@@ -233,3 +239,4 @@ playerAdditionButton.forEach(element => {
         };
     };
 });
+
