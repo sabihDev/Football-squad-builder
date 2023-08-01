@@ -192,7 +192,7 @@ playerAdditionButton.forEach(element => {
                     PlayerAdded();
                 }
                 else {
-                    alert('Please input numeric characters only');
+                    alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
                     PlayerAddedNot();
                 }
             }
