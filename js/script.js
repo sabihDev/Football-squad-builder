@@ -15,8 +15,6 @@ class Player {
         this.SetValues();
     }
 
-
-
     SetValues() {
         let playerProperties = {
             propertyPlayerName: this.button.parentElement.childNodes[3].childNodes[1],
@@ -37,11 +35,11 @@ class Player {
         playerProperties.propertyPlayerMainFoot.textContent = this.mainFoot;
 
         playerProperties.propertyPlayerName.parentElement.classList.remove("hidden");
+        playerProperties.propertyPlayerHeight.parentElement.parentElement.classList.remove("hidden");
         playerProperties.propertyPlayerName.parentElement.parentElement.style.background = 'none';
         playerProperties.propertyPlayerName.parentElement.parentElement.style.border = 'none';
         playerProperties.propertyPlayerName.parentElement.parentElement.style.color = 'white';
         playerProperties.propertyPlayerName.parentElement.style.padding = '0 1rem';
-
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
@@ -49,20 +47,13 @@ class Player {
 
             tooltips.forEach((tooltip) => {
 
-                
-                document.addEventListener('mouseover', (event) => {
+
+                button.addEventListener('mouseover', (event) => {
                     const mouseX = event.clientX;
                     const mouseY = event.clientY;
                     tooltip.style.position = 'fixed';
                     tooltip.style.left = mouseX + 'px';
                     tooltip.style.top = mouseY + 20 + 'px';
-                    // Add an offset to prevent overlapping
-                });
-                
-                // button.addEventListener('mouseover', () => {
-                // });
-
-                button.addEventListener('mouseover', () => {
                     Show(tooltip);
                 });
 
@@ -72,7 +63,9 @@ class Player {
                 });
             });
         })
-    }
+    };
+
+
 }
 
 
@@ -178,10 +171,9 @@ function DisableCreateMatchScreen() {
 
 playerAdditionButton.forEach(element => {
     element.onclick = () => {
+
         playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
         submitPlayerPropsButton.onclick = () => {
-            Hide(playersAdditionForm);
-            Hide(element);
 
             let playerInputs = {
                 inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
@@ -193,16 +185,43 @@ playerAdditionButton.forEach(element => {
                 inputPlayerMainFoot: playersAdditionForm.querySelector('#player-input__main-foot'),
             }
 
-            let player = new Player(
-                element,
-                playerInputs.inputPlayerName.value,
-                playerInputs.inputPlayerHeight.value,
-                playerInputs.inputPlayerDef.value,
-                playerInputs.inputPlayerPhy.value,
-                playerInputs.inputPlayerDrrible.value,
-                playerInputs.inputPlayerPace.value,
-                playerInputs.inputPlayerMainFoot.value,
-            );
+            function AllNumeric() {
+                var numbers = /^[0-9]+$/;
+                if ((playerInputs.inputPlayerDef.value.match(numbers)) && (playerInputs.inputPlayerDrrible.value.match(numbers)) && (playerInputs.inputPlayerPhy.value.match(numbers)) && (playerInputs.inputPlayerPace.value.match(numbers)) && (playerInputs.inputPlayerHeight.value.match(numbers))) {
+                    alert('Your Registration number has accepted....');
+                    PlayerAdded();
+                }
+                else {
+                    alert('Please input numeric characters only');
+                    PlayerAddedNot();
+                }
+            }
+
+            AllNumeric();
+
+            function PlayerAdded() {
+                Hide(element);
+                Hide(playersAdditionForm)
+                console.log(playerInputs.inputPlayerHeight.value);
+
+                let player = new Player(
+                    element,
+                    playerInputs.inputPlayerName.value,
+                    playerInputs.inputPlayerHeight.value,
+                    playerInputs.inputPlayerDef.value,
+                    playerInputs.inputPlayerPhy.value,
+                    playerInputs.inputPlayerDrrible.value,
+                    playerInputs.inputPlayerPace.value,
+                    playerInputs.inputPlayerMainFoot.value,
+                );
+            }
+
+            function PlayerAddedNot() {
+                alert(`Form is not correctly filled.
+                Make sure you would add text in name and foot of a player
+                and add numbers in the remaining inputs.`);
+            }
+
 
             playerInputs.inputPlayerName.value = "";
             playerInputs.inputPlayerHeight.value = "";
