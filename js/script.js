@@ -48,20 +48,29 @@ class Player {
             const tooltips = document.querySelectorAll('.tooltip-text');
 
             tooltips.forEach((tooltip) => {
-                document.addEventListener('mousemove', (event) => {
+
+                
+                document.addEventListener('mouseover', (event) => {
                     const mouseX = event.clientX;
                     const mouseY = event.clientY;
+                    tooltip.style.position = 'fixed';
                     tooltip.style.left = mouseX + 'px';
-                    tooltip.style.top = mouseY + 20 + 'px'; // Add an offset to prevent overlapping
+                    tooltip.style.top = mouseY + 20 + 'px';
+                    // Add an offset to prevent overlapping
                 });
+                
+                // button.addEventListener('mouseover', () => {
+                // });
+
                 button.addEventListener('mouseover', () => {
-                    tooltip.style.display = 'block';
+                    Show(tooltip);
                 });
-    
+
                 button.addEventListener('mouseout', () => {
-                    tooltip.style.display = 'none';
+                    tooltip.style.position = 'absolute';
+                    Hide(tooltip);
                 });
-            })
+            });
         })
     }
 }
