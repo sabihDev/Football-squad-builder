@@ -39,8 +39,8 @@ class Player {
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.background = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.border = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.color = 'white';
-        GetParentInHierarchy(1, playerProperties.propertyPlayerName).style.padding = 
-        '0 1rem';
+        GetParentInHierarchy(1, playerProperties.propertyPlayerName).style.padding =
+            '0 1rem';
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
@@ -170,6 +170,38 @@ function DisableCreateMatchScreen() {
 
 // TODO: Make a function that gets the id of add player btn
 
+const editButtons = document.querySelectorAll('.edit-btn');
+editButtons.forEach(editButton => {
+    editButton.onclick = () => {
+        let playerProperties = {
+            playerNameProp: editButton.parentElement.parentElement.childNodes[3].childNodes[1],
+            playerHeightProp: editButton.parentElement.parentElement.childNodes[5].childNodes[1].childNodes[1],
+            playerPhyProp: editButton.parentElement.parentElement.childNodes[5].childNodes[3].childNodes[1],
+            playerDefProp: editButton.parentElement.parentElement.childNodes[5].childNodes[5].childNodes[1],
+            playerDrribleProp: editButton.parentElement.parentElement.childNodes[5].childNodes[7].childNodes[1],
+            playerPaceProp: editButton.parentElement.parentElement.childNodes[5].childNodes[9].childNodes[1],
+            playerMainFootProp: editButton.parentElement.parentElement.childNodes[5].childNodes[11].childNodes[1],
+        }
+        Show(playersAdditionForm);
+        playerInputs.inputPlayerName.value =playerProperties.playerNameProp.textContent;
+        playerInputs.inputPlayerHeight.value =playerProperties.playerHeightProp.textContent;
+        playerInputs.inputPlayerPhy.value =playerProperties.playerPhyProp.textContent;
+        playerInputs.inputPlayerDef.value =playerProperties.playerDefProp.textContent;
+        playerInputs.inputPlayerDrrible.value =playerProperties.playerDrribleProp.textContent;
+        playerInputs.inputPlayerPace.value =playerProperties.playerPaceProp.textContent;
+        playerInputs.inputPlayerMainFoot.value =playerProperties.playerMainFootProp.textContent;
+    }
+});
+
+let playerInputs = {
+    inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
+    inputPlayerHeight: playersAdditionForm.querySelector('#player-input__height'),
+    inputPlayerDef: playersAdditionForm.querySelector('#player-input__def'),
+    inputPlayerPhy: playersAdditionForm.querySelector('#player-input__phy'),
+    inputPlayerDrrible: playersAdditionForm.querySelector('#player-input__drrible'),
+    inputPlayerPace: playersAdditionForm.querySelector('#player-input__pace'),
+    inputPlayerMainFoot: playersAdditionForm.querySelector('#player-input__main-foot'),
+}
 
 playerAdditionButton.forEach(element => {
     element.onclick = () => {
@@ -177,22 +209,13 @@ playerAdditionButton.forEach(element => {
 
         playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
         submitPlayerPropsButton.onclick = () => {
-            let playerInputs = {
-                inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
-                inputPlayerHeight: playersAdditionForm.querySelector('#player-input__height'),
-                inputPlayerDef: playersAdditionForm.querySelector('#player-input__def'),
-                inputPlayerPhy: playersAdditionForm.querySelector('#player-input__phy'),
-                inputPlayerDrrible: playersAdditionForm.querySelector('#player-input__drrible'),
-                inputPlayerPace: playersAdditionForm.querySelector('#player-input__pace'),
-                inputPlayerMainFoot: playersAdditionForm.querySelector('#player-input__main-foot'),
-            }
 
             function AllNumeric() {
                 if (
                     (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
                     (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
-                    (ValidateInteger(playerInputs.inputPlayerPhy.value)) && 
-                    (ValidateInteger(playerInputs.inputPlayerPace.value)) && 
+                    (ValidateInteger(playerInputs.inputPlayerPhy.value)) &&
+                    (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
                     (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
                     alert('Your Registration number has accepted....');
                     PlayerAdded();
@@ -237,11 +260,4 @@ playerAdditionButton.forEach(element => {
             playerInputs.inputPlayerMainFoot.value = "";
         };
     };
-});
-
-const editButtons = document.querySelectorAll('.edit-btn');
-editButtons.forEach(editButton => {
-    editButton.onclick=()=>{
-        Show(playersAdditionForm);
-    }
 });
