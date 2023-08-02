@@ -1,5 +1,13 @@
 @import url("normalize.css");
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}
+
 *,
 *::after,
 *::before {
@@ -70,7 +78,7 @@ body {
 .team-b {
   width: 50vw;
   display: grid;
-  border: 1px solid black;
+  border: 1px solid white;
   grid-template-columns: repeat(auto-fill, 200px);
   gap: 2rem;
   padding: 2rem;
@@ -78,10 +86,10 @@ body {
 }
 
 .player {
-  border: 1px solid black;
+  border: 1px solid white;
   height: 200px;
   background: #008974;
-  color:black;
+  color:white;
   font-size: 1.7rem;
   transition: all 150s ease-in;
 }
@@ -119,6 +127,9 @@ body {
 }
 
 .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 

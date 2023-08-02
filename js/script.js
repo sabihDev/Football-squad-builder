@@ -101,6 +101,7 @@ const createMatchButton = document.querySelector('.create-match-section__btn');
 const teamFormSubmitButton = document.querySelector('#teams-form__submit-btn');
 const playerAdditionButton = document.querySelectorAll('.add-player-btn');
 
+
 //Containers
 const createMatchContainer = document.querySelector('.create-match-section');
 const teamAdditionDialogBox = document.querySelector('.teams-addition');
@@ -172,11 +173,10 @@ function DisableCreateMatchScreen() {
 
 playerAdditionButton.forEach(element => {
     element.onclick = () => {
+        Hide(element);
 
         playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
-        console.log(playersAdditionForm.classList)
         submitPlayerPropsButton.onclick = () => {
-
             let playerInputs = {
                 inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
                 inputPlayerHeight: playersAdditionForm.querySelector('#player-input__height'),
@@ -206,7 +206,6 @@ playerAdditionButton.forEach(element => {
             AllNumeric();
 
             function PlayerAdded() {
-                Hide(element);
                 Hide(playersAdditionForm)
                 console.log(playerInputs.inputPlayerHeight.value);
 
@@ -240,3 +239,9 @@ playerAdditionButton.forEach(element => {
     };
 });
 
+const editButtons = document.querySelectorAll('.edit-btn');
+editButtons.forEach(editButton => {
+    editButton.onclick=()=>{
+        Show(playersAdditionForm);
+    }
+});
