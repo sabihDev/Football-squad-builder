@@ -80,6 +80,7 @@ body {
 
 .team-a,
 .team-b {
+  border: 5px solid white;
   width: 100vw;
   display: flex;
   gap: 2rem;
