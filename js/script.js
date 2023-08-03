@@ -183,13 +183,41 @@ editButtons.forEach(editButton => {
             playerMainFootProp: editButton.parentElement.parentElement.childNodes[5].childNodes[11].childNodes[1],
         }
         Show(playersAdditionForm);
-        playerInputs.inputPlayerName.value =playerProperties.playerNameProp.textContent;
-        playerInputs.inputPlayerHeight.value =playerProperties.playerHeightProp.textContent;
-        playerInputs.inputPlayerPhy.value =playerProperties.playerPhyProp.textContent;
-        playerInputs.inputPlayerDef.value =playerProperties.playerDefProp.textContent;
-        playerInputs.inputPlayerDrrible.value =playerProperties.playerDrribleProp.textContent;
-        playerInputs.inputPlayerPace.value =playerProperties.playerPaceProp.textContent;
-        playerInputs.inputPlayerMainFoot.value =playerProperties.playerMainFootProp.textContent;
+        playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+        playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+        playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+        playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+        playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+        playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+        playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
+
+        playerInputs.inputPlayerName.onfocus = () => {
+            playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
+        }
+
+        playerInputs.inputPlayerHeight.onfocus = () => {
+            playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
+        }
+
+        playerInputs.inputPlayerPhy.onfocus = () => {
+            playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
+        }
+
+        playerInputs.inputPlayerDef.onfocus = () => {
+            playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
+        }
+
+        playerInputs.inputPlayerDrrible.onfocus = () => {
+            playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
+        }
+
+        playerInputs.inputPlayerPace.onfocus = () => {
+            playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
+        }
+
+        playerInputs.inputPlayerMainFoot.onfocus = () => {
+            playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
+        }
     }
 });
 
