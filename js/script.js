@@ -2,6 +2,8 @@ import { Hide, Show, AddClickListener, ValidateInteger, GetParentInHierarchy } f
 
 //Classes
 
+let players = [];
+
 class Player {
     constructor(button, name, height, defence, physique, drrible, pace, mainFoot) {
         this.button = button;
@@ -39,8 +41,22 @@ class Player {
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.background = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.border = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.color = 'white';
-        GetParentInHierarchy(1, playerProperties.propertyPlayerName).style.padding =
-            '0 1rem';
+        GetParentInHierarchy(1, playerProperties.propertyPlayerName).style.padding = '0 1rem';
+
+        const jsonData = {
+            id: Math.floor(Math.random() * 100000),
+            name: playerProperties.propertyPlayerName.textContent,
+            height: playerProperties.propertyPlayerHeight.textContent,
+            phy: playerProperties.propertyPlayerPhyscique.textContent,
+            def: playerProperties.propertyPlayerDef.textContent,
+            drrible: playerProperties.propertyPlayerDrrible.textContent,
+            pace: playerProperties.propertyPlayerPace.textContent,
+            mainFoot: playerProperties.propertyPlayerMainFoot.textContent,
+        };
+
+        players.push(jsonData);
+        let jsonString = JSON.stringify(players);
+        console.log(jsonString);
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
@@ -65,9 +81,8 @@ class Player {
             });
         })
     };
-
-
 }
+
 
 
 class Team {
@@ -289,3 +304,4 @@ playerAdditionButton.forEach(element => {
         };
     };
 });
+
