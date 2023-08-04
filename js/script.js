@@ -2,7 +2,7 @@ import { Hide, Show, AddClickListener, ValidateInteger, GetParentInHierarchy } f
 
 //Classes
 
-let players = [];
+let players = {};
 
 class Player {
     constructor(button, name, height, defence, physique, drrible, pace, mainFoot) {
@@ -53,10 +53,9 @@ class Player {
             pace: playerProperties.propertyPlayerPace.textContent,
             mainFoot: playerProperties.propertyPlayerMainFoot.textContent,
         };
-
-        players.push(jsonData);
-        let jsonString = JSON.stringify(players);
-        console.log(jsonString);
+        let jsonString = JSON.stringify(jsonData);
+        players+=JSON.parse(JSON.stringify(jsonString));
+        console.log(players);
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
