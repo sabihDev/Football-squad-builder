@@ -19,13 +19,14 @@ class Player {
 
     SetValues() {
         let playerProperties = {
-            propertyPlayerName: this.button.parentElement.childNodes[3].childNodes[1],
-            propertyPlayerHeight: this.button.parentElement.childNodes[5].childNodes[1].childNodes[1],
-            propertyPlayerPhyscique: this.button.parentElement.childNodes[5].childNodes[3].childNodes[1],
-            propertyPlayerDef: this.button.parentElement.childNodes[5].childNodes[5].childNodes[1],
-            propertyPlayerDrrible: this.button.parentElement.childNodes[5].childNodes[7].childNodes[1],
-            propertyPlayerPace: this.button.parentElement.childNodes[5].childNodes[9].childNodes[1],
-            propertyPlayerMainFoot: this.button.parentElement.childNodes[5].childNodes[11].childNodes[1],
+            playerPicture: this.button.parentElement.childNodes[3],
+            propertyPlayerName: this.button.parentElement.childNodes[5].childNodes[1],
+            propertyPlayerHeight: this.button.parentElement.childNodes[7].childNodes[1].childNodes[1],
+            propertyPlayerPhyscique: this.button.parentElement.childNodes[7].childNodes[3].childNodes[1],
+            propertyPlayerDef: this.button.parentElement.childNodes[7].childNodes[5].childNodes[1],
+            propertyPlayerDrrible: this.button.parentElement.childNodes[7].childNodes[7].childNodes[1],
+            propertyPlayerPace: this.button.parentElement.childNodes[7].childNodes[9].childNodes[1],
+            propertyPlayerMainFoot: this.button.parentElement.childNodes[7].childNodes[11].childNodes[1],
         };
 
         playerProperties.propertyPlayerName.textContent = this.name;
@@ -38,6 +39,7 @@ class Player {
 
         Show(GetParentInHierarchy(1, playerProperties.propertyPlayerName));
         Show(GetParentInHierarchy(2, playerProperties.propertyPlayerHeight));
+        Show(playerProperties.playerPicture);
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.background = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.border = 'none';
         GetParentInHierarchy(2, playerProperties.propertyPlayerName).style.color = 'white';
@@ -59,13 +61,13 @@ class Player {
         editButtons.forEach(editButton => {
             editButton.onclick = () => {
                 let playerProperties = {
-                    playerNameProp: editButton.parentElement.parentElement.childNodes[3].childNodes[1],
-                    playerHeightProp: editButton.parentElement.parentElement.childNodes[5].childNodes[1].childNodes[1],
-                    playerPhyProp: editButton.parentElement.parentElement.childNodes[5].childNodes[3].childNodes[1],
-                    playerDefProp: editButton.parentElement.parentElement.childNodes[5].childNodes[5].childNodes[1],
-                    playerDrribleProp: editButton.parentElement.parentElement.childNodes[5].childNodes[7].childNodes[1],
-                    playerPaceProp: editButton.parentElement.parentElement.childNodes[5].childNodes[9].childNodes[1],
-                    playerMainFootProp: editButton.parentElement.parentElement.childNodes[5].childNodes[11].childNodes[1],
+                    playerNameProp: editButton.parentElement.parentElement.childNodes[5].childNodes[1],
+                    playerHeightProp: editButton.parentElement.parentElement.childNodes[7].childNodes[1].childNodes[1],
+                    playerPhyProp: editButton.parentElement.parentElement.childNodes[7].childNodes[3].childNodes[1],
+                    playerDefProp: editButton.parentElement.parentElement.childNodes[7].childNodes[5].childNodes[1],
+                    playerDrribleProp: editButton.parentElement.parentElement.childNodes[7].childNodes[7].childNodes[1],
+                    playerPaceProp: editButton.parentElement.parentElement.childNodes[7].childNodes[9].childNodes[1],
+                    playerMainFootProp: editButton.parentElement.parentElement.childNodes[7].childNodes[11].childNodes[1],
                 }
                 Show(playersAdditionForm);
                 playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;

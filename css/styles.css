@@ -80,12 +80,20 @@ body {
 
 .team-a,
 .team-b {
-  border: 5px solid white;
+  border: 2px solid white;
   width: 100vw;
   display: flex;
   gap: 2rem;
   padding: 2rem;
   margin: 0 5rem 0 0;
+}
+
+.picture{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 100%;
+  background: #fff;
 }
 
 .flex-center {
@@ -103,6 +111,7 @@ body {
 
 .player {
   border: 1px solid white;
+  margin-top: 2rem;
   width: 150px;
   height: 100px;
   font-size: 1.7rem;
