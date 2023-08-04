@@ -45,7 +45,7 @@ class Player {
 
         const jsonData = {
             id: Math.floor(Math.random() * 100000),
-            TeamName:GetTeamName(),
+            TeamName: GetTeamName(),
             name: playerProperties.propertyPlayerName.textContent,
             height: playerProperties.propertyPlayerHeight.textContent,
             phy: playerProperties.propertyPlayerPhyscique.textContent,
@@ -54,9 +54,91 @@ class Player {
             pace: playerProperties.propertyPlayerPace.textContent,
             mainFoot: playerProperties.propertyPlayerMainFoot.textContent,
         };
+
+        const editButtons = document.querySelectorAll('.edit-btn');
+        editButtons.forEach(editButton => {
+            editButton.onclick = () => {
+                let playerProperties = {
+                    playerNameProp: editButton.parentElement.parentElement.childNodes[3].childNodes[1],
+                    playerHeightProp: editButton.parentElement.parentElement.childNodes[5].childNodes[1].childNodes[1],
+                    playerPhyProp: editButton.parentElement.parentElement.childNodes[5].childNodes[3].childNodes[1],
+                    playerDefProp: editButton.parentElement.parentElement.childNodes[5].childNodes[5].childNodes[1],
+                    playerDrribleProp: editButton.parentElement.parentElement.childNodes[5].childNodes[7].childNodes[1],
+                    playerPaceProp: editButton.parentElement.parentElement.childNodes[5].childNodes[9].childNodes[1],
+                    playerMainFootProp: editButton.parentElement.parentElement.childNodes[5].childNodes[11].childNodes[1],
+                }
+                Show(playersAdditionForm);
+                playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+                playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+                playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+                playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+                playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+                playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+                playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
+
+                playerInputs.inputPlayerName.onfocus = () => {
+                    playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
+                }
+
+                playerInputs.inputPlayerHeight.onfocus = () => {
+                    playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
+                }
+
+                playerInputs.inputPlayerPhy.onfocus = () => {
+                    playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
+                }
+
+                playerInputs.inputPlayerDef.onfocus = () => {
+                    playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
+                }
+
+                playerInputs.inputPlayerDrrible.onfocus = () => {
+                    playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
+                }
+
+                playerInputs.inputPlayerPace.onfocus = () => {
+                    playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
+                }
+
+                playerInputs.inputPlayerMainFoot.onfocus = () => {
+                    playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
+                }
+                submitPlayerPropsButton.onclick = () => {
+                    const playerId = jsonData.id;
+                    let newHeight = playerInputs.inputPlayerHeight.value;
+                    let newName = playerInputs.inputPlayerName.value;
+                    let newDef = playerInputs.inputPlayerDef.value;
+                    let newPhy = playerInputs.inputPlayerPhy.value;
+                    let newDrrible = playerInputs.inputPlayerDrrible.value;
+                    let newPace = playerInputs.inputPlayerPace.value;
+                    let newMainFoot = playerInputs.inputPlayerMainFoot.value;
+
+                    playerProperties.playerNameProp =newName;
+                    playerProperties.playerHeightProp=newHeight;
+                    playerProperties.playerPhyProp=newPhy;
+                    playerProperties.playerDefProp=newDef;
+                    playerProperties.playerDrribleProp=newDrrible;
+                    playerProperties.playerPaceProp=newPace;
+                    playerProperties.playerMainFootProp=newMainFoot;
+
+                    Hide(playersAdditionForm);
+                    if (playerId == jsonData.id) {
+                        jsonData.height = newHeight;
+                        jsonData.name = newName;
+                        jsonData.phy = newPhy;
+                        jsonData.def = newDef;
+                        jsonData.drrible = newDrrible;
+                        jsonData.pace = newPace;
+                        jsonData.mainFoot = newMainFoot;
+                        let jsonString = JSON.stringify(jsonData);
+                        players = JSON.parse(JSON.stringify(jsonString));
+                    }
+                }
+            }
+        });
+
         let jsonString = JSON.stringify(jsonData);
         players += JSON.parse(JSON.stringify(jsonString));
-        console.log(players);
 
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
@@ -193,57 +275,6 @@ function DisableCreateMatchScreen() {
 }
 
 // TODO: Make a function that gets the id of add player btn
-
-const editButtons = document.querySelectorAll('.edit-btn');
-editButtons.forEach(editButton => {
-    editButton.onclick = () => {
-        let playerProperties = {
-            playerNameProp: editButton.parentElement.parentElement.childNodes[3].childNodes[1],
-            playerHeightProp: editButton.parentElement.parentElement.childNodes[5].childNodes[1].childNodes[1],
-            playerPhyProp: editButton.parentElement.parentElement.childNodes[5].childNodes[3].childNodes[1],
-            playerDefProp: editButton.parentElement.parentElement.childNodes[5].childNodes[5].childNodes[1],
-            playerDrribleProp: editButton.parentElement.parentElement.childNodes[5].childNodes[7].childNodes[1],
-            playerPaceProp: editButton.parentElement.parentElement.childNodes[5].childNodes[9].childNodes[1],
-            playerMainFootProp: editButton.parentElement.parentElement.childNodes[5].childNodes[11].childNodes[1],
-        }
-        Show(playersAdditionForm);
-        playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
-        playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
-        playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
-        playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
-        playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
-        playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
-        playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
-
-        playerInputs.inputPlayerName.onfocus = () => {
-            playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
-        }
-
-        playerInputs.inputPlayerHeight.onfocus = () => {
-            playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
-        }
-
-        playerInputs.inputPlayerPhy.onfocus = () => {
-            playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
-        }
-
-        playerInputs.inputPlayerDef.onfocus = () => {
-            playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
-        }
-
-        playerInputs.inputPlayerDrrible.onfocus = () => {
-            playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
-        }
-
-        playerInputs.inputPlayerPace.onfocus = () => {
-            playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
-        }
-
-        playerInputs.inputPlayerMainFoot.onfocus = () => {
-            playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
-        }
-    }
-});
 
 let playerInputs = {
     inputPlayerName: playersAdditionForm.querySelector('#player-input__name'),
