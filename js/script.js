@@ -45,6 +45,7 @@ class Player {
 
         const jsonData = {
             id: Math.floor(Math.random() * 100000),
+            TeamName:GetTeamName(),
             name: playerProperties.propertyPlayerName.textContent,
             height: playerProperties.propertyPlayerHeight.textContent,
             phy: playerProperties.propertyPlayerPhyscique.textContent,
@@ -54,7 +55,7 @@ class Player {
             mainFoot: playerProperties.propertyPlayerMainFoot.textContent,
         };
         let jsonString = JSON.stringify(jsonData);
-        players+=JSON.parse(JSON.stringify(jsonString));
+        players += JSON.parse(JSON.stringify(jsonString));
         console.log(players);
 
         const buttons = document.querySelectorAll('.tooltip');
@@ -78,7 +79,16 @@ class Player {
                     Hide(tooltip);
                 });
             });
-        })
+        });
+
+        function GetTeamName() {
+            if (GetParentInHierarchy(5, playerProperties.propertyPlayerName) == teamAPlayersContainer) {
+                return teamAName.textContent;
+            }
+            else {
+                return teamBName.textContent;
+            }
+        }
     };
 }
 
