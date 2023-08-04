@@ -82,7 +82,7 @@ class Player {
         });
 
         function GetTeamName() {
-            if (GetParentInHierarchy(5, playerProperties.propertyPlayerName) == teamAPlayersContainer) {
+            if (GetParentInHierarchy(4, playerProperties.propertyPlayerName) == teamAPlayersContainer) {
                 return teamAName.textContent;
             }
             else {
