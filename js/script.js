@@ -346,4 +346,3 @@ playerAdditionButton.forEach(element => {
         };
     };
 });
-

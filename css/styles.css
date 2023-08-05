@@ -88,7 +88,7 @@ body {
   margin: 0 5rem 0 0;
 }
 
-.picture{
+.picture {
   width: 100px;
   height: 100px;
   margin: 0 auto;
@@ -110,9 +110,10 @@ body {
 }
 
 .player {
-  border: 1px solid white;
+  background: white;
+  border-radius: 100%;
   margin-top: 2rem;
-  width: 150px;
+  width: 100px;
   height: 100px;
   font-size: 1.7rem;
   transition: all 150s ease-in;
@@ -146,7 +147,8 @@ body {
 .add-player-btn {
   position: relative;
   top: 5%;
-  left: 37%;
+  left: 32%;
+  color: #000000;
   font-size: 6rem;
   cursor: pointer;
 }
