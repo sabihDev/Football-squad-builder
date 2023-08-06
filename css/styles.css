@@ -2,6 +2,7 @@
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
+  color: black;
 }
 
 *,
@@ -67,15 +68,8 @@ body {
 
 .flex-2-row {
   display: flex;
+  flex-direction: row;
   width: 100vw;
-}
-
-.team-a {
-  flex-direction: column;
-}
-
-.team-b {
-  flex-direction: column-reverse;
 }
 
 .team-a,
@@ -87,6 +81,15 @@ body {
   padding: 2rem;
   margin: 0 5rem 0 0;
 }
+
+.team-a {
+  flex-direction: column;
+}
+
+.team-b {
+  flex-direction: column-reverse;
+}
+
 
 .picture {
   width: 100px;
@@ -106,6 +109,7 @@ body {
 .four {
   width: 100vw;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
 
@@ -224,4 +228,24 @@ button {
 
 .team-form button {
   width: 50%;
+}
+
+.formation-btn {
+  width: 18rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+  transform: translateX(2rem);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 2rem;
 }
