@@ -370,8 +370,10 @@ formationButtons.forEach(element => {
         function SetFormation() {
             // console.log(+inputFormation.value[0] + +inputFormation.value[2]);
 
-            for (var i = 0; i < +inputFormation.value.length; i += 2) {
-                sum += +inputFormation.value[i];
+            const numbers = inputFormation.value.match(/\d+/g);
+            console.log(numbers);
+            for (var i = 0; i < numbers.length; i++) {
+                sum += +numbers[i];
                 let parentPlayerDiv = document.createElement('div');
                 parentPlayerDiv.className = 'four';
                 let playerDiv = document.createElement('div');
@@ -403,7 +405,7 @@ formationButtons.forEach(element => {
                     </div>
                 </div>`;
                 if (sum <= 10) {
-                    for (var j = 0; j < +inputFormation.value[i]; j++) {
+                    for (var j = 0; j < +numbers[i]; j++) {
                         parentPlayerDiv.appendChild(playerDiv.cloneNode(true));
                     }
                     currentFormedTeam.appendChild(parentPlayerDiv);
