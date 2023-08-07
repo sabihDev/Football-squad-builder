@@ -57,12 +57,12 @@
               </div>
             </div>
             <button class="flex-center formation-btn">
-              Create Your Formation
+              Choose Your Formation
             </button>
           </div>
           <div class="team-b hidden">
             <button class="flex-center formation-btn">
-              Create Your Formation
+              Choose Your Formation
             </button>
             <div class="flex-center">
               <div class="player">
@@ -180,13 +180,18 @@
 
       <div class="dialog-box formation-decider hidden">
         <div class="flex-col">
-          <label for="formation">Enter below your formation.</label>
-          <input
-            type="text"
-            class="input-formation"
+          <label for="formation">Choose your formation.</label>
+          <select
             name="formation"
-            placeholder="Example:4-3-3"
-          />
+            id="formation"
+            class="input-formation"
+          >
+            <option value="4-3-3">4-3-3</option>
+            <option value="4-3-2-1">4-3-2-1</option>
+            <option value="4-2-3-1">4-2-3-1</option>
+            <option value="4-2-4">4-2-4</option>
+            <option value="4-4-2">4-4-2</option>
+          </select>
           <button type="button" class="set-formation">Make Formation</button>
         </div>
       </div>

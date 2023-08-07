@@ -354,24 +354,21 @@ const formationButtons = document.querySelectorAll(".formation-btn");
 const formationForm = document.querySelector(".formation-decider");
 const formationSubmitButton = document.querySelector('.set-formation');
 const inputFormation = document.querySelector('.input-formation');
-let sum = 0;
 
-// Define or import necessary functions like Show, Hide, and GetParentTeamContainer
-// Define or obtain the formationSubmitButton and inputFormation
 
 formationButtons.forEach(element => {
     element.onclick = () => {
         Show(formationForm);
         var currentFormedTeam = GetParentTeamContainer(element);
-        var sum = 0; // Initialize the sum variable
 
         AddClickListener(formationSubmitButton, SetFormation);
 
         function SetFormation() {
+            let sum = 0;
             // console.log(+inputFormation.value[0] + +inputFormation.value[2]);
 
             const numbers = inputFormation.value.match(/\d+/g);
-            for (var i = 0; i < numbers.length; i++) {
+            for (var i = 0; i < +numbers.length; i++) {
                 sum += +numbers[i];
                 let parentPlayerDiv = document.createElement('div');
                 parentPlayerDiv.className = 'four';
@@ -407,7 +404,7 @@ formationButtons.forEach(element => {
                     for (var j = 0; j < +numbers[i]; j++) {
                         parentPlayerDiv.appendChild(playerDiv.cloneNode(true));
                     }
-                    currentFormedTeam.appendChild(parentPlayerDiv);
+                    currentFormedTeam.appendChild(parentPlayerDiv.cloneNode(true));
                     playerDiv.style.background = 'white';
                     Hide(formationForm);
                     Hide(element);
