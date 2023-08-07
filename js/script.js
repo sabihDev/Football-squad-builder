@@ -371,7 +371,6 @@ formationButtons.forEach(element => {
             // console.log(+inputFormation.value[0] + +inputFormation.value[2]);
 
             const numbers = inputFormation.value.match(/\d+/g);
-            console.log(numbers);
             for (var i = 0; i < numbers.length; i++) {
                 sum += +numbers[i];
                 let parentPlayerDiv = document.createElement('div');
