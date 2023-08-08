@@ -364,12 +364,10 @@ formationButtons.forEach(element => {
         AddClickListener(formationSubmitButton, SetFormation);
 
         function SetFormation() {
-            let sum = 0;
             // console.log(+inputFormation.value[0] + +inputFormation.value[2]);
-
-            const numbers = inputFormation.value.match(/\d+/g);
-            for (var i = 0; i < +numbers.length; i++) {
-                sum += +numbers[i];
+            var sum = 0;
+            for (var i = 0; i < inputFormation.value.length; i+=2) {
+                sum += inputFormation.value[i];
                 let parentPlayerDiv = document.createElement('div');
                 parentPlayerDiv.className = 'four';
                 let playerDiv = document.createElement('div');
@@ -377,98 +375,98 @@ formationButtons.forEach(element => {
                 playerDiv.innerHTML = `<div class="add-player-btn">+</div>
                 <div class="picture hidden"></div>
                 <div class="name hidden tooltip">
-                    Name: <span></span>
-                    <span class="edit-btn">
-                        <span class="material-symbols-outlined"> edit </span>
-                    </span> 
+                Name: <span></span>
+                <span class="edit-btn">
+                <span class="material-symbols-outlined"> edit </span>
+                </span> 
                 </div>
                 <div class="hidden tooltip-text">
-                    <div class="height">
-                        Height: <span ></span>
-                    </div>
-                    <div class="phy">
-                        Physique: <span></span>
-                    </div>
-                    <div class="def">
-                        Defence: <span></span>
-                    </div>
-                    <div class="dribble"> <!-- Correct typo: drrible to dribble -->
-                        Dribbles: <span ></span>
-                    </div>
-                    <div class="pace">Pace: <span ></span></div>
-                    <div class="main-foot">
-                        Main foot: <span ></span>
-                    </div>
+                <div class="height">
+                Height: <span ></span>
+                </div>
+                <div class="phy">
+                Physique: <span></span>
+                </div>
+                <div class="def">
+                    Defence: <span></span>
+                </div>
+                <div class="drribble">
+                    Dribbles: <span ></span>
+                </div>
+                <div class="pace">Pace: <span ></span></div>
+                <div class="main-foot">
+                    Main foot: <span ></span>
+                </div>
                 </div>`;
                 if (sum <= 10) {
-                    for (var j = 0; j < +numbers[i]; j++) {
+                    for (var j = 0; j < +inputFormation.value[i]; j++) {
                         parentPlayerDiv.appendChild(playerDiv.cloneNode(true));
+                        currentFormedTeam.appendChild(parentPlayerDiv);
                     }
-                    currentFormedTeam.appendChild(parentPlayerDiv.cloneNode(true));
                     playerDiv.style.background = 'white';
                     Hide(formationForm);
                     Hide(element);
                 }
                 var playerAdditionButtons = parentPlayerDiv.querySelectorAll(".add-player-btn");
 
-                playerAdditionButtons.forEach(playerAdditionButton => {
-                    playerAdditionButton.onclick = () => {
-                        Hide(playerAdditionButton);
+                // playerAdditionButtons.forEach(playerAdditionButton => {
+                //     playerAdditionButton.onclick = () => {
+                //         Hide(playerAdditionButton);
 
-                        playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
-                        submitPlayerPropsButton.onclick = () => {
+                //         playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
+                //         submitPlayerPropsButton.onclick = () => {
 
-                            function AllNumeric() {
-                                if (
-                                    (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
-                                    (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
-                                    (ValidateInteger(playerInputs.inputPlayerPhy.value)) &&
-                                    (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
-                                    (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
-                                    alert('Your Registration number has accepted....');
-                                    PlayerAdded();
-                                }
-                                else {
-                                    alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
-                                    PlayerAddedNot();
-                                }
-                            }
+                //             function AllNumeric() {
+                //                 if (
+                //                     (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
+                //                     (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
+                //                     (ValidateInteger(playerInputs.inputPlayerPhy.value)) &&
+                //                     (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
+                //                     (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
+                //                     alert('Your Registration number has accepted....');
+                //                     PlayerAdded();
+                //                 }
+                //                 else {
+                //                     alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
+                //                     PlayerAddedNot();
+                //                 }
+                //             }
 
-                            AllNumeric();
+                //             AllNumeric();
 
-                            function PlayerAdded() {
-                                Hide(playersAdditionForm)
-                                console.log(playerInputs.inputPlayerHeight.value);
+                //             function PlayerAdded() {
+                //                 Hide(playersAdditionForm)
+                //                 console.log(playerInputs.inputPlayerHeight.value);
 
-                                let player = newPlayer(
-                                    playerAdditionButton,
-                                    playerInputs.inputPlayerName.value,
-                                    playerInputs.inputPlayerHeight.value,
-                                    playerInputs.inputPlayerDef.value,
-                                    playerInputs.inputPlayerPhy.value,
-                                    playerInputs.inputPlayerDrrible.value,
-                                    playerInputs.inputPlayerPace.value,
-                                    playerInputs.inputPlayerMainFoot.value,
-                                );
-                            }
+                //                 let player = newPlayer(
+                //                     playerAdditionButton,
+                //                     playerInputs.inputPlayerName.value,
+                //                     playerInputs.inputPlayerHeight.value,
+                //                     playerInputs.inputPlayerDef.value,
+                //                     playerInputs.inputPlayerPhy.value,
+                //                     playerInputs.inputPlayerDrrible.value,
+                //                     playerInputs.inputPlayerPace.value,
+                //                     playerInputs.inputPlayerMainFoot.value,
+                //                 );
+                //             }
 
-                            function PlayerAddedNot() {
-                                alert(`Form is not correctly filled.
-                                Make sure you would add text in name and foot of a player
-                                and add numbers in the remaining inputs.`);
-                            }
+                //             function PlayerAddedNot() {
+                //                 alert(`Form is not correctly filled.
+                //                 Make sure you would add text in name and foot of a player
+                //                 and add numbers in the remaining inputs.`);
+                //             }
 
 
-                            playerInputs.inputPlayerName.value = "";
-                            playerInputs.inputPlayerHeight.value = "";
-                            playerInputs.inputPlayerDef.value = "";
-                            playerInputs.inputPlayerPhy.value = "";
-                            playerInputs.inputPlayerPace.value = "";
-                            playerInputs.inputPlayerDrrible.value = "";
-                            playerInputs.inputPlayerMainFoot.value = "";
-                        };
-                    }
-                })
+                //             playerInputs.inputPlayerName.value = "";
+                //             playerInputs.inputPlayerHeight.value = "";
+                //             playerInputs.inputPlayerDef.value = "";
+                //             playerInputs.inputPlayerPhy.value = "";
+                //             playerInputs.inputPlayerPace.value = "";
+                //             playerInputs.inputPlayerDrrible.value = "";
+                //             playerInputs.inputPlayerMainFoot.value = "";
+                //         };
+                //     }
+                // })
             }
         }
 
@@ -492,110 +490,110 @@ function GetParentTeamContainer(button) {
 
 const pictures = document.querySelectorAll('.picture');
 
-pictures.forEach(editButton =>{
-    editButton.onclick= ()=>{
-        
-        let playerProperties = {
-            playerNameProp: editButton.parentElement.childNodes[5].childNodes[1],
-            playerHeightProp: editButton.parentElement.childNodes[7].childNodes[1].childNodes[1],
-            playerPhyProp: editButton.parentElement.childNodes[7].childNodes[3].childNodes[1],
-            playerDefProp: editButton.parentElement.childNodes[7].childNodes[5].childNodes[1],
-            playerDrribleProp: editButton.parentElement.childNodes[7].childNodes[7].childNodes[1],
-            playerPaceProp: editButton.parentElement.childNodes[7].childNodes[9].childNodes[1],
-            playerMainFootProp: editButton.parentElement.childNodes[7].childNodes[11].childNodes[1],
-        }
+// pictures.forEach(editButton => {
+//     editButton.onclick = () => {
 
-        Show(playersAdditionForm);
-        playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
-        playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
-        playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
-        playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
-        playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
-        playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
-        playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
+//         let playerProperties = {
+//             playerNameProp: editButton.parentElement.childNodes[5].childNodes[1],
+//             playerHeightProp: editButton.parentElement.childNodes[7].childNodes[1].childNodes[1],
+//             playerPhyProp: editButton.parentElement.childNodes[7].childNodes[3].childNodes[1],
+//             playerDefProp: editButton.parentElement.childNodes[7].childNodes[5].childNodes[1],
+//             playerDrribleProp: editButton.parentElement.childNodes[7].childNodes[7].childNodes[1],
+//             playerPaceProp: editButton.parentElement.childNodes[7].childNodes[9].childNodes[1],
+//             playerMainFootProp: editButton.parentElement.childNodes[7].childNodes[11].childNodes[1],
+//         }
 
-        playerInputs.inputPlayerName.onfocus = () => {
-            playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
-        }
+//         Show(playersAdditionForm);
+//         playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+//         playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+//         playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+//         playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+//         playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+//         playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+//         playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
-        playerInputs.inputPlayerHeight.onfocus = () => {
-            playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
-        }
+//         playerInputs.inputPlayerName.onfocus = () => {
+//             playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
+//         }
 
-        playerInputs.inputPlayerPhy.onfocus = () => {
-            playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
-        }
+//         playerInputs.inputPlayerHeight.onfocus = () => {
+//             playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
+//         }
 
-        playerInputs.inputPlayerDef.onfocus = () => {
-            playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
-        }
+//         playerInputs.inputPlayerPhy.onfocus = () => {
+//             playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
+//         }
 
-        playerInputs.inputPlayerDrrible.onfocus = () => {
-            playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
-        }
+//         playerInputs.inputPlayerDef.onfocus = () => {
+//             playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
+//         }
 
-        playerInputs.inputPlayerPace.onfocus = () => {
-            playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
-        }
+//         playerInputs.inputPlayerDrrible.onfocus = () => {
+//             playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
+//         }
 
-        playerInputs.inputPlayerMainFoot.onfocus = () => {
-            playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
-        }
-        submitPlayerPropsButton.onclick = () => {
+//         playerInputs.inputPlayerPace.onfocus = () => {
+//             playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
+//         }
 
-            function GetTeamName() {
-                if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
-                    return teamAName.textContent;
-                }
-                else {
-                    return teamBName.textContent;
-                }
-            }
+//         playerInputs.inputPlayerMainFoot.onfocus = () => {
+//             playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
+//         }
+//         submitPlayerPropsButton.onclick = () => {
 
-            const jsonData = {
-                id: Math.floor(Math.random() * 100000),
-                TeamName: GetTeamName(),
-                name: playerProperties.playerNameProp.textContent,
-                height: playerProperties.playerHeightProp.textContent,
-                phy: playerProperties.playerPhyProp.textContent,
-                def: playerProperties.playerDefProp.textContent,
-                drrible: playerProperties.playerDrribleProp.textContent,
-                pace: playerProperties.playerPaceProp.textContent,
-                mainFoot: playerProperties.playerMainFootProp.textContent,
-            };
+//             function GetTeamName() {
+//                 if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
+//                     return teamAName.textContent;
+//                 }
+//                 else {
+//                     return teamBName.textContent;
+//                 }
+//             }
 
-            const playerId = jsonData.id;
-            let newHeight = playerInputs.inputPlayerHeight.value;
-            let newName = playerInputs.inputPlayerName.value;
-            let newDef = playerInputs.inputPlayerDef.value;
-            let newPhy = playerInputs.inputPlayerPhy.value;
-            let newDrrible = playerInputs.inputPlayerDrrible.value;
-            let newPace = playerInputs.inputPlayerPace.value;
-            let newMainFoot = playerInputs.inputPlayerMainFoot.value;
+//             const jsonData = {
+//                 id: Math.floor(Math.random() * 100000),
+//                 TeamName: GetTeamName(),
+//                 name: playerProperties.playerNameProp.textContent,
+//                 height: playerProperties.playerHeightProp.textContent,
+//                 phy: playerProperties.playerPhyProp.textContent,
+//                 def: playerProperties.playerDefProp.textContent,
+//                 drrible: playerProperties.playerDrribleProp.textContent,
+//                 pace: playerProperties.playerPaceProp.textContent,
+//                 mainFoot: playerProperties.playerMainFootProp.textContent,
+//             };
 
-            playerProperties.playerNameProp = newName;
-            playerProperties.playerHeightProp = newHeight;
-            playerProperties.playerPhyProp = newPhy;
-            playerProperties.playerDefProp = newDef;
-            playerProperties.playerDrribleProp = newDrrible;
-            playerProperties.playerPaceProp = newPace;
-            playerProperties.playerMainFootProp = newMainFoot;
+//             const playerId = jsonData.id;
+//             let newHeight = playerInputs.inputPlayerHeight.value;
+//             let newName = playerInputs.inputPlayerName.value;
+//             let newDef = playerInputs.inputPlayerDef.value;
+//             let newPhy = playerInputs.inputPlayerPhy.value;
+//             let newDrrible = playerInputs.inputPlayerDrrible.value;
+//             let newPace = playerInputs.inputPlayerPace.value;
+//             let newMainFoot = playerInputs.inputPlayerMainFoot.value;
 
-            Hide(playersAdditionForm);
-            if (playerId == jsonData.id) {
-                jsonData.height = newHeight;
-                jsonData.name = newName;
-                jsonData.phy = newPhy;
-                jsonData.def = newDef;
-                jsonData.drrible = newDrrible;
-                jsonData.pace = newPace;
-                jsonData.mainFoot = newMainFoot;
-                let jsonString = JSON.stringify(jsonData);
-                players = JSON.parse(JSON.stringify(jsonString));
-            }
-        }
-    }
-})
+//             playerProperties.playerNameProp = newName;
+//             playerProperties.playerHeightProp = newHeight;
+//             playerProperties.playerPhyProp = newPhy;
+//             playerProperties.playerDefProp = newDef;
+//             playerProperties.playerDrribleProp = newDrrible;
+//             playerProperties.playerPaceProp = newPace;
+//             playerProperties.playerMainFootProp = newMainFoot;
+
+//             Hide(playersAdditionForm);
+//             if (playerId == jsonData.id) {
+//                 jsonData.height = newHeight;
+//                 jsonData.name = newName;
+//                 jsonData.phy = newPhy;
+//                 jsonData.def = newDef;
+//                 jsonData.drrible = newDrrible;
+//                 jsonData.pace = newPace;
+//                 jsonData.mainFoot = newMainFoot;
+//                 let jsonString = JSON.stringify(jsonData);
+//                 players = JSON.parse(JSON.stringify(jsonString));
+//             }
+//         }
+//     }
+// })
 
 function newPlayer(button, name, height, defence, physcique, drrible, pace, mainFoot) {
     var playerProps = {
@@ -635,7 +633,7 @@ function newPlayer(button, name, height, defence, physcique, drrible, pace, main
                 const mouseY = event.clientY;
                 tooltip.style.position = 'fixed';
                 tooltip.style.left = mouseX + 'px';
-                tooltip.style.top = mouseY+20 + 'px';
+                tooltip.style.top = mouseY + 20 + 'px';
                 Show(tooltip);
             });
 
@@ -755,25 +753,25 @@ function newPlayer(button, name, height, defence, physcique, drrible, pace, main
     console.log(playerProps.heightProp.textContent);
 }
 
-const buttons = document.querySelectorAll('.tooltip');
-buttons.forEach((button) => {
-    const tooltips = document.querySelectorAll('.tooltip-text');
+// const buttons = document.querySelectorAll('.tooltip');
+// buttons.forEach((button) => {
+//     const tooltips = document.querySelectorAll('.tooltip-text');
 
-    tooltips.forEach((tooltip) => {
+//     tooltips.forEach((tooltip) => {
 
 
-        button.addEventListener('mouseover', (event) => {
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-            tooltip.style.position = 'fixed';
-            tooltip.style.left = mouseX + 'px';
-            tooltip.style.top = mouseY+ 20 + 'px';
-            Show(tooltip);
-        });
+//         button.addEventListener('mouseover', (event) => {
+//             const mouseX = event.clientX;
+//             const mouseY = event.clientY;
+//             tooltip.style.position = 'fixed';
+//             tooltip.style.left = mouseX + 'px';
+//             tooltip.style.top = mouseY + 20 + 'px';
+//             Show(tooltip);
+//         });
 
-        button.addEventListener('mouseout', () => {
-            tooltip.style.position = 'absolute';
-            Hide(tooltip);
-        });
-    });
-});
+//         button.addEventListener('mouseout', () => {
+//             tooltip.style.position = 'absolute';
+//             Hide(tooltip);
+//         });
+//     });
+// });

@@ -34,6 +34,10 @@ body {
   justify-content: center;
 }
 
+.container{
+  overflow: hidden;
+}
+
 .create-match-section__heading {
   font-size: 6rem;
 }
@@ -84,6 +88,7 @@ body {
 
 .team-a {
   flex-direction: column;
+  overflow: hidden;
 }
 
 .team-b {
