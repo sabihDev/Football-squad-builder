@@ -306,14 +306,16 @@ const formationButtons = document.querySelectorAll(".formation-btn");
 const formationForm = document.querySelector(".formation-decider");
 const inputFormation = document.querySelector('.input-formation');
 
-
 formationButtons.forEach(element => {
     element.onclick = () => {
         formationForm.style.display = 'block';
-        console.log(formationForm);
+        Show(formationForm);
 
-        const formationSubmitButton = document.querySelector('.set-formation');
-        AddClickListener(formationSubmitButton, HandleFormationSubmission(element));
+        setTimeout(()=>{
+            const formationSubmitButton = document.querySelector('.set-formation');
+            AddClickListener(formationSubmitButton, HandleFormationSubmission(element));
+            formationForm.style.display = 'none';
+        },5000)
     }
 });
 
@@ -337,7 +339,6 @@ function HandleFormationSubmission(parents) {
             }
 
             Hide(parents);
-            formationForm.style.display = 'none';
 
             currentFormedTeam.appendChild(parentPlayerDiv);
         }

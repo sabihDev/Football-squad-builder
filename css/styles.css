@@ -241,6 +241,8 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1rem;
+  position: absolute;
+  left: 0;
   transform: translateX(2rem);
 }
 
