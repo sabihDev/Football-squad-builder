@@ -14,7 +14,7 @@ class Player {
         this.drrible = drrible;
         this.pace = pace;
         this.mainFoot = mainFoot;
-        this.SetValues();
+        this.SetValues = this.SetValues.bind(this);
     }
 
     SetValues() {
@@ -28,7 +28,7 @@ class Player {
             paceProp: this.button.parentElement.childNodes[6].childNodes[9].childNodes[1],
             mainFootProp: this.button.parentElement.childNodes[6].childNodes[11].childNodes[1],
         }
-    
+
         playerProps.nameProp.textContent = this.name;
         playerProps.heightProp.textContent = this.height;
         playerProps.paceProp.textContent = this.pace;
@@ -36,20 +36,21 @@ class Player {
         playerProps.defProp.textContent = this.defence;
         playerProps.drribleProp.textContent = this.drrible;
         playerProps.mainFootProp.textContent = this.mainFoot;
-    
-    
+
+        playerProps.nameProp.classList.remove("hidden");
+        playerProps.nameProp.style.color ='black';
+
         Show(playerProps.picture);
         playerProps.picture.style.cursor = 'pointer';
-        console.log(playerProps.picture);
         button.parentElement.childNodes[4].classList.remove("hidden");
-    
+
         const buttons = document.querySelectorAll('.tooltip');
         buttons.forEach((button) => {
             const tooltips = document.querySelectorAll('.tooltip-text');
-    
+
             tooltips.forEach((tooltip) => {
-    
-    
+
+
                 button.addEventListener('mouseover', (event) => {
                     const mouseX = event.clientX;
                     const mouseY = event.clientY;
@@ -58,16 +59,16 @@ class Player {
                     tooltip.style.top = mouseY + 20 + 'px';
                     Show(tooltip);
                 });
-    
+
                 button.addEventListener('mouseout', () => {
                     tooltip.style.position = 'absolute';
                     Hide(tooltip);
                 });
             });
         });
-    
+
         const picturess = document.querySelectorAll('.picture');
-    
+
         picturess.forEach(editButton => {
             editButton.onclick = () => {
                 let playerProperties = {
@@ -87,36 +88,36 @@ class Player {
                 playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
                 playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
                 playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
-    
+
                 playerInputs.inputPlayerName.onfocus = () => {
                     playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerHeight.onfocus = () => {
                     playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerPhy.onfocus = () => {
                     playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerDef.onfocus = () => {
                     playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerDrrible.onfocus = () => {
                     playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerPace.onfocus = () => {
                     playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
                 }
-    
+
                 playerInputs.inputPlayerMainFoot.onfocus = () => {
                     playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
                 }
                 submitPlayerPropsButton.onclick = () => {
-    
+
                     function GetTeamName() {
                         if (GetParentInHierarchy(4, playerProps.nameProp) == teamAPlayersContainer) {
                             return teamAName.textContent;
@@ -125,7 +126,7 @@ class Player {
                             return teamBName.textContent;
                         }
                     }
-    
+
                     const jsonData = {
                         id: Math.floor(Math.random() * 10000),
                         TeamName: GetTeamName(),
@@ -137,7 +138,7 @@ class Player {
                         pace: playerProps.paceProp.textContent,
                         mainFoot: playerProps.mainFootProp.textContent,
                     };
-    
+
                     const playerId = jsonData.id;
                     let newHeight = playerInputs.inputPlayerHeight.value;
                     let newName = playerInputs.inputPlayerName.value;
@@ -146,7 +147,7 @@ class Player {
                     let newDrrible = playerInputs.inputPlayerDrrible.value;
                     let newPace = playerInputs.inputPlayerPace.value;
                     let newMainFoot = playerInputs.inputPlayerMainFoot.value;
-    
+
                     playerProperties.playerNameProp.textContent = newName;
                     playerProperties.playerHeightProp.textContent = newHeight;
                     playerProperties.playerPhyProp.textContent = newPhy;
@@ -154,7 +155,7 @@ class Player {
                     playerProperties.playerDrribleProp.textContent = newDrrible;
                     playerProperties.playerPaceProp.textContent = newPace;
                     playerProperties.playerMainFootProp.textContent = newMainFoot;
-    
+
                     Hide(playersAdditionForm);
                     if (playerId == jsonData.id) {
                         jsonData.height = newHeight;
@@ -171,7 +172,7 @@ class Player {
             }
         });
     }
-    
+
 }
 
 
@@ -286,22 +287,6 @@ let playerInputs = {
     inputPlayerMainFoot: playersAdditionForm.querySelector('#player-input__main-foot'),
 }
 
-var playerAdditionButtons = document.querySelectorAll(".add-player-btn");
-playerAdditionButtons.forEach(playerAdditionButton => {
-    playerAdditionButton.onclick = () => {
-        Hide(playerAdditionButton);
-
-        playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
-        submitPlayerPropsButton.onclick = () => {
-
-            CheckAllNumeric();
-            ClearInputs();
-                            
-        };
-    }
-});
-
-
 const formationButtons = document.querySelectorAll(".formation-btn");
 const formationForm = document.querySelector(".formation-decider");
 const inputFormation = document.querySelector('.input-formation');
@@ -311,12 +296,28 @@ formationButtons.forEach(element => {
         formationForm.style.display = 'block';
         Show(formationForm);
 
-        setTimeout(()=>{
+        setTimeout(() => {
             const formationSubmitButton = document.querySelector('.set-formation');
             AddClickListener(formationSubmitButton, HandleFormationSubmission(element));
             formationForm.style.display = 'none';
-        },4000)
+        }, 4000)
     }
+
+    var playerAdditionButtons = document.querySelectorAll(".add-player-btn");
+    playerAdditionButtons.forEach(playerAdditionButton => {
+        playerAdditionButton.onclick = () => {
+            Hide(playerAdditionButton);
+
+            playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
+            submitPlayerPropsButton.onclick = () => {
+
+                CheckAllNumeric(playerAdditionButton);
+                ClearInputs();
+
+            };
+        }
+    });
+
 });
 
 function HandleFormationSubmission(parents) {
@@ -390,19 +391,19 @@ function CreatePlayerDiv() {
 
             CheckAllNumeric();
             ClearInputs();
-                            
+
         };
     };
 
     return playerDiv;
 }
 
-function PlayerAdded() {
+function PlayerAdded(btn) {
     Hide(playersAdditionForm)
     console.log(playerInputs.inputPlayerHeight.value);
 
     let player = new Player(
-        playerAdditionButton,
+        btn,
         playerInputs.inputPlayerName.value,
         playerInputs.inputPlayerHeight.value,
         playerInputs.inputPlayerDef.value,
