@@ -237,16 +237,13 @@ button {
 
 .formation-btn {
   width: 18rem;
-  margin: 1rem auto;
+  margin: 0 auto;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1rem;
-  position: relative;
-  top: 54%;
-  left: 8%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  right: 10vw;
+  position: absolute;
+  left: 0;
+  transform: translateX(2rem);
 }
 
 .flex-col {
