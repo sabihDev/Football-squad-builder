@@ -38,7 +38,7 @@ class Player {
         playerProps.mainFootProp.textContent = this.mainFoot;
 
         playerProps.nameProp.classList.remove("hidden");
-        playerProps.nameProp.style.color ='black';
+        playerProps.nameProp.style.color = 'black';
 
         Show(playerProps.picture);
         playerProps.picture.style.cursor = 'pointer';
