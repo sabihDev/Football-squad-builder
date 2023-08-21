@@ -20,26 +20,26 @@ class Player {
     SetValues() {
         var playerProps = {
             picture: this.button.parentElement.childNodes[2],
-            nameProp: this.button.parentElement.childNodes[4].childNodes[1],
-            heightProp: this.button.parentElement.childNodes[6].childNodes[1].childNodes[1],
-            phyProp: this.button.parentElement.childNodes[6].childNodes[3].childNodes[1],
-            defProp: this.button.parentElement.childNodes[6].childNodes[5].childNodes[1],
-            drribleProp: this.button.parentElement.childNodes[6].childNodes[7].childNodes[1],
-            paceProp: this.button.parentElement.childNodes[6].childNodes[9].childNodes[1],
-            mainFootProp: this.button.parentElement.childNodes[6].childNodes[11].childNodes[1],
+            nameProp: this.button.parentElement.childNodes[4],
+            heightProp: this.button.parentElement.childNodes[5].childNodes[1],
+            phyProp: this.button.parentElement.childNodes[5].childNodes[3],
+            defProp: this.button.parentElement.childNodes[5].childNodes[5],
+            drribleProp: this.button.parentElement.childNodes[5].childNodes[7],
+            paceProp: this.button.parentElement.childNodes[5].childNodes[9],
+            mainFootProp: this.button.parentElement.childNodes[5].childNodes[11],
         }
 
         console.log(playerProps.defProp);
 
-        playerProps.nameProp.textContent = this.name;
-        console.log(playerProps.nameProp.textContent);
-        playerProps.heightProp.textContent = this.height;
-        playerProps.paceProp.textContent = this.pace;
-        playerProps.phyProp.textContent = this.physcique;
-        playerProps.defProp.textContent = this.defence;
-        console.log(playerProps.defProp.textContent);
-        playerProps.drribleProp.textContent = this.drrible;
-        playerProps.mainFootProp.textContent = this.mainFoot;
+        playerProps['nameProp'].innerHTML = this.name;
+        console.log(playerProps['nameProp'].innerHTML);
+        playerProps.heightProp.innerHTML = this.height;
+        playerProps['paceProp'].innerHTML = this.pace;
+        playerProps.phyProp.innerHTML = this.physcique;
+        playerProps.defProp.innerHTML = this.defence;
+        console.log(playerProps.defProp.innerHTML);
+        playerProps.drribleProp.innerHTML = this.drrible;
+        playerProps.mainFootProp.innerHTML = this.mainFoot;
         console.log(playerProps.mainFootProp);
 
         playerProps.nameProp.classList.remove("hidden");
@@ -210,7 +210,7 @@ class Team {
 //Buttons
 const createMatchButton = document.querySelector('.create-match-section__btn');
 const teamFormSubmitButton = document.querySelector('#teams-form__submit-btn');
-const playerAdditionButton = document.querySelectorAll('.add-player-btn');
+const playerAdditionButtons = document.querySelectorAll('.add-player-btn');
 
 //Containers
 const createMatchContainer = document.querySelector('.create-match-section');
@@ -302,8 +302,6 @@ formationButtons.forEach(element => {
             formationForm.style.display = 'none';
         }, 4000);
 
-        var playerAdditionButtons = document.querySelectorAll('.add-player-btn');
-
         playerAdditionButtons.forEach(playerAdditionButton => {
             playerAdditionButton.onclick = () => {
                 Show(playersAdditionForm);
@@ -350,10 +348,8 @@ formationButtons.forEach(element => {
 
                 Hide(playersAdditionForm);
             }
-        })
+        });
     }
-
-    var playerAdditionButtons = document.querySelectorAll(".add-player-btn");
     playerAdditionButtons.forEach(playerAdditionButton => {
         playerAdditionButton.onclick = () => {
             Hide(playerAdditionButton);
