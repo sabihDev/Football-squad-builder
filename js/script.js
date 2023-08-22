@@ -15,18 +15,19 @@ class Player {
         this.pace = pace;
         this.mainFoot = mainFoot;
         this.SetValues();
+        console.log(this.button);
     }
 
     SetValues() {
         var playerProps = {
             picture: this.button.parentElement.childNodes[2],
             nameProp: this.button.parentElement.childNodes[4],
-            heightProp: this.button.parentElement.childNodes[5].childNodes[1],
-            phyProp: this.button.parentElement.childNodes[5].childNodes[3],
-            defProp: this.button.parentElement.childNodes[5].childNodes[5],
-            drribleProp: this.button.parentElement.childNodes[5].childNodes[7],
-            paceProp: this.button.parentElement.childNodes[5].childNodes[9],
-            mainFootProp: this.button.parentElement.childNodes[5].childNodes[11],
+            heightProp: this.button.parentElement.childNodes[5].childNodes[1].childNodes[1],
+            phyProp: this.button.parentElement.childNodes[5].childNodes[3].childNodes[1],
+            defProp: this.button.parentElement.childNodes[5].childNodes[5].childNodes[1],
+            drribleProp: this.button.parentElement.childNodes[5].childNodes[7].childNodes[1],
+            paceProp: this.button.parentElement.childNodes[5].childNodes[9].childNodes[1],
+            mainFootProp: this.button.parentElement.childNodes[5].childNodes[11].childNodes[1],
         }
 
         console.log(playerProps.defProp);
@@ -336,7 +337,7 @@ formationButtons.forEach(element => {
                         (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
                         (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
                         alert('Your Registration number has accepted....');
-                        PlayerAdded(playerAdditionButton);
+                        PlayerAdded();
                     }
                     else {
                         alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
@@ -386,7 +387,7 @@ formationButtons.forEach(element => {
                         (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
                         (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
                         alert('Your Registration number has accepted....');
-                        PlayerAdded(playerAdditionButton);
+                        PlayerAdded();
                     }
                     else {
                         alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
@@ -482,8 +483,6 @@ function CreatePlayerDiv() {
                         playerInputs.inputPlayerPace.value,
                         playerInputs.inputPlayerMainFoot.value,
                     );
-                    console.log(playerInputs.inputPlayerHeight.value);
-                    console.log(playerInputs.inputPlayerDef.value);
 
                     Hide(playersAdditionForm);
                 }
@@ -520,8 +519,6 @@ function CreatePlayerDiv() {
     return playerDiv;
 }
 
-
-
 function ClearInputs() {
     playerInputs.inputPlayerName.value = "";
     playerInputs.inputPlayerHeight.value = "";
@@ -531,7 +528,6 @@ function ClearInputs() {
     playerInputs.inputPlayerDrrible.value = "";
     playerInputs.inputPlayerMainFoot.value = "";
 }
-
 
 function GetParentTeamContainer(button) {
     if (GetParentInHierarchy(1, button) == teamAPlayersContainer) {
