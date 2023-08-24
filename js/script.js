@@ -598,8 +598,6 @@ formationButtons.forEach(element => {
                     );
                     console.log(playerInputs.inputPlayerHeight.value);
                     console.log(playerInputs.inputPlayerDef.value);
-
-                    Hide(playersAdditionForm);
                 }
 
                 function PlayerAddedNot() {
@@ -806,6 +804,7 @@ function CreatePlayerDiv() {
             playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
             submitPlayerPropsButton.onclick = () => {
                 function PlayerAdded() {
+                    Show(playersAdditionForm);
                     let player = new Player(
                         playerAdditionButton,
                         playerInputs.inputPlayerName.value,
@@ -817,7 +816,7 @@ function CreatePlayerDiv() {
                         playerInputs.inputPlayerMainFoot.value,
                     );
 
-                    Hide(playersAdditionForm);
+                    
                 }
 
                 function PlayerAddedNot() {
@@ -835,7 +834,6 @@ function CreatePlayerDiv() {
                         (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
                         alert('Your Registration number has accepted....');
                         PlayerAdded();
-                        Hide(playersAdditionForm);
                     }
                     else {
                         alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
@@ -844,7 +842,7 @@ function CreatePlayerDiv() {
                 }
                 CheckAllNumeric();
                 ClearInputs();
-
+                Hide(playersAdditionForm);
             };
         };
     })
