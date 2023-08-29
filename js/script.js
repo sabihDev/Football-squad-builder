@@ -18,6 +18,8 @@ class Player {
         // console.log(this.button);
     }
 
+<<<<<<< HEAD
+=======
     // SetValues() {
     //     var playerProps = {
     //         picture: this.button.parentElement.childNodes[2],
@@ -87,62 +89,62 @@ class Player {
     //                 playerMainFootProp: editButton.parentElement.childNodes[6].childNodes[11].childNodes[1],
     //             }
     //             Show(playersAdditionForm);
-    //             playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.innerHTML;
-    //             playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.innerHTML;
-    //             playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.innerHTML;
-    //             playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.innerHTML;
-    //             playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.innerHTML;
-    //             playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.innerHTML;
-    //             playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.innerHTML;
+    //             playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+    //             playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+    //             playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+    //             playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+    //             playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+    //             playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+    //             playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
     //             playerInputs.inputPlayerName.onfocus = () => {
-    //                 playerInputs.inputPlayerName.value = playerProperties.playerNameProp.innerHTML;
+    //                 playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerHeight.onfocus = () => {
-    //                 playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.innerHTML;
+    //                 playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerPhy.onfocus = () => {
-    //                 playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.innerHTML;
+    //                 playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerDef.onfocus = () => {
-    //                 playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.innerHTML;
+    //                 playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerDrrible.onfocus = () => {
-    //                 playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.innerHTML;
+    //                 playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerPace.onfocus = () => {
-    //                 playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.innerHTML;
+    //                 playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
     //             }
 
     //             playerInputs.inputPlayerMainFoot.onfocus = () => {
-    //                 playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
+    //                 playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
     //             }
     //             submitPlayerPropsButton.onclick = () => {
 
     //                 function GetTeamName() {
     //                     if (GetParentInHierarchy(4, playerProps.nameProp) == teamAPlayersContainer) {
-    //                         return teamAName.innerHTML;
+    //                         return teamAName.textContent;
     //                     }
     //                     else {
-    //                         return teamBName.innerHTML;
+    //                         return teamBName.textContent;
     //                     }
     //                 }
 
     //                 const jsonData = {
     //                     id: Math.floor(Math.random() * 10000),
     //                     TeamName: GetTeamName(),
-    //                     name: playerProps.nameProp.innerHTML,
-    //                     height: playerProps.heightProp.innerHTML,
-    //                     phy: playerProps.phyProp.innerHTML,
-    //                     def: playerProps.defProp.innerHTML,
-    //                     drrible: playerProps.drribleProp.innerHTML,
-    //                     pace: playerProps.paceProp.innerHTML,
-    //                     mainFoot: playerProps.mainFootProp.innerHTML,
+    //                     name: playerProps.nameProp.textContent,
+    //                     height: playerProps.heightProp.textContent,
+    //                     phy: playerProps.phyProp.textContent,
+    //                     def: playerProps.defProp.textContent,
+    //                     drrible: playerProps.drribleProp.textContent,
+    //                     pace: playerProps.paceProp.textContent,
+    //                     mainFoot: playerProps.mainFootProp.textContent,
     //                 };
 
     //                 const playerId = jsonData.id;
@@ -154,13 +156,13 @@ class Player {
     //                 let newPace = playerInputs.inputPlayerPace.value;
     //                 let newMainFoot = playerInputs.inputPlayerMainFoot.value;
 
-    //                 playerProperties.playerNameProp.innerHTML = newName;
-    //                 playerProperties.playerHeightProp.innerHTML = newHeight;
-    //                 playerProperties.playerPhyProp.innerHTML = newPhy;
-    //                 playerProperties.playerDefProp.innerHTML = newDef;
-    //                 playerProperties.playerDrribleProp.innerHTML = newDrrible;
-    //                 playerProperties.playerPaceProp.innerHTML = newPace;
-    //                 playerProperties.playerMainFootProp.innerHTML = newMainFoot;
+    //                 playerProperties.playerNameProp.textContent = newName;
+    //                 playerProperties.playerHeightProp.textContent = newHeight;
+    //                 playerProperties.playerPhyProp.textContent = newPhy;
+    //                 playerProperties.playerDefProp.textContent = newDef;
+    //                 playerProperties.playerDrribleProp.textContent = newDrrible;
+    //                 playerProperties.playerPaceProp.textContent = newPace;
+    //                 playerProperties.playerMainFootProp.textContent = newMainFoot;
 
     //                 Hide(playersAdditionForm);
     //                 if (playerId == jsonData.id) {
@@ -179,6 +181,7 @@ class Player {
     //     });
     // }
 
+>>>>>>> parent of 29f42cb (updating green co;or)
     SetValues() {
         let playerProps = {
             picture: this.button.parentElement.childNodes[3],
@@ -204,68 +207,70 @@ class Player {
 
         Show(playerProps.picture);
         Show(playerProps.nameProp.parentElement);
+<<<<<<< HEAD
+=======
 
         var pictures = document.querySelectorAll(".picture");
         pictures.forEach(editButton => {
             editButton.onclick = () => {
 
                 Show(playersAdditionForm);
-                playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.innerHTML;
-                playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.innerHTML;
-                playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.innerHTML;
-                playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.innerHTML;
-                playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.innerHTML;
-                playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.innerHTML;
-                playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.innerHTML;
+                playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+                playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+                playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+                playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+                playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+                playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+                playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
                 playerInputs.inputPlayerName.onfocus = () => {
-                    playerInputs.inputPlayerName.value = playerProperties.playerNameProp.innerHTML;
+                    playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
                 }
 
                 playerInputs.inputPlayerHeight.onfocus = () => {
-                    playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.innerHTML;
+                    playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
                 }
 
                 playerInputs.inputPlayerPhy.onfocus = () => {
-                    playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.innerHTML;
+                    playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
                 }
 
                 playerInputs.inputPlayerDef.onfocus = () => {
-                    playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.innerHTML;
+                    playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
                 }
 
                 playerInputs.inputPlayerDrrible.onfocus = () => {
-                    playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.innerHTML;
+                    playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
                 }
 
                 playerInputs.inputPlayerPace.onfocus = () => {
-                    playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.innerHTML;
+                    playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
                 }
 
                 playerInputs.inputPlayerMainFoot.onfocus = () => {
-                    playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
+                    playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
                 }
                 submitPlayerPropsButton.onclick = () => {
 
                     function GetTeamName() {
                         if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
-                            return teamAName.innerHTML;
+                            return teamAName.textContent;
                         }
                         else {
-                            return teamBName.innerHTML;
+                            return teamBName.textContent;
                         }
                     }
 
                     const jsonData = {
                         id: Math.floor(Math.random() * 100000),
                         TeamName: GetTeamName(),
-                        name: playerProperties.playerNameProp.innerHTML,
-                        height: playerProperties.playerHeightProp.innerHTML,
-                        phy: playerProperties.playerPhyProp.innerHTML,
-                        def: playerProperties.playerDefProp.innerHTML,
-                        drrible: playerProperties.playerDrribleProp.innerHTML,
-                        pace: playerProperties.playerPaceProp.innerHTML,
-                        mainFoot: playerProperties.playerMainFootProp.innerHTML,
+                        name: playerProperties.playerNameProp.textContent,
+                        height: playerProperties.playerHeightProp.textContent,
+                        phy: playerProperties.playerPhyProp.textContent,
+                        def: playerProperties.playerDefProp.textContent,
+                        drrible: playerProperties.playerDrribleProp.textContent,
+                        pace: playerProperties.playerPaceProp.textContent,
+                        mainFoot: playerProperties.playerMainFootProp.textContent,
                     };
 
                     const playerId = jsonData.id;
@@ -300,6 +305,7 @@ class Player {
                 }
             }
         });
+>>>>>>> parent of 29f42cb (updating green co;or)
     }
 
 
@@ -344,7 +350,7 @@ const teamAPlayersContainer = document.querySelector('.team-a');
 const teamBPlayersContainer = document.querySelector('.team-b');
 const teamAName = document.querySelector('.team-a__name');
 const teamBName = document.querySelector('.team-b__name');
-const submitPlayerPropsButton = document.querySelector('#players-form__submit-btn');
+var submitPlayerPropsButton = document.querySelector('#players-form__submit-btn');
 
 //Input Text Values
 const playersAdditionForm = document.querySelector('.players-addition');
@@ -377,20 +383,20 @@ function DisableCreateMatchScreen() {
     if (teamANameInput.value !== null && (teamBNameInput.value !== null)) {
         Show(teamBName);
         Show(teamAName);
-        teamBName.innerHTML = teamBNameInput.value;
-        teamAName.innerHTML = teamANameInput.value;
+        teamBName.textContent = teamBNameInput.value;
+        teamAName.textContent = teamANameInput.value;
         return;
     }
-    else if (teamANameInput.innerHTML !== null) {
+    else if (teamANameInput.textContent !== null) {
         Show(teamAName);
         teamAName.value = teamANameInput.value;
         Show(teamBName);
-        teamBName.innerHTML = "Team B";
+        teamBName.textContent = "Team B";
     }
     else if (teamBNameInput.value !== null) {
         teamBName.value = teamBNameInput.value;
         Show(teamAName);
-        teamAName.innerHTML = 'Team A';
+        teamAName.textContent = 'Team A';
     }
     else {
         teamBName.innerHTML = "Team B";
@@ -412,9 +418,9 @@ var playerInputs = {
     inputPlayerMainFoot: playersAdditionForm.querySelector('#player-input__main-foot'),
 }
 
-const formationButtons = document.querySelectorAll(".formation-btn");
-const formationForm = document.querySelector(".formation-decider");
-const inputFormation = document.querySelector('.input-formation');
+var formationButtons = document.querySelectorAll(".formation-btn");
+var formationForm = document.querySelector(".formation-decider");
+var inputFormation = document.querySelector('.input-formation');
 
 formationButtons.forEach(element => {
     element.onclick = () => {
@@ -422,10 +428,12 @@ formationButtons.forEach(element => {
         Show(formationForm);
 
         setTimeout(() => {
-            const formationSubmitButton = document.querySelector('.set-formation');
+            var formationSubmitButton = document.querySelector('.set-formation');
             AddClickListener(formationSubmitButton, HandleFormationSubmission(element));
             formationForm.style.display = 'none';
         }, 4000);
+<<<<<<< HEAD
+=======
 
         playerAdditionButtons.forEach(playerAdditionButton => {
             playerAdditionButton.onclick = () => {
@@ -489,62 +497,62 @@ formationButtons.forEach(element => {
                 }
 
                 Show(playersAdditionForm);
-                playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.innerHTML;
-                playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.innerHTML;
-                playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.innerHTML;
-                playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.innerHTML;
-                playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.innerHTML;
-                playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.innerHTML;
-                playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.innerHTML;
+                playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+                playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+                playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+                playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+                playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+                playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+                playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
                 playerInputs.inputPlayerName.onfocus = () => {
-                    playerInputs.inputPlayerName.value = playerProperties.playerNameProp.innerHTML;
+                    playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
                 }
 
                 playerInputs.inputPlayerHeight.onfocus = () => {
-                    playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.innerHTML;
+                    playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
                 }
 
                 playerInputs.inputPlayerPhy.onfocus = () => {
-                    playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.innerHTML;
+                    playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
                 }
 
                 playerInputs.inputPlayerDef.onfocus = () => {
-                    playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.innerHTML;
+                    playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
                 }
 
                 playerInputs.inputPlayerDrrible.onfocus = () => {
-                    playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.innerHTML;
+                    playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
                 }
 
                 playerInputs.inputPlayerPace.onfocus = () => {
-                    playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.innerHTML;
+                    playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
                 }
 
                 playerInputs.inputPlayerMainFoot.onfocus = () => {
-                    playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
+                    playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
                 }
                 submitPlayerPropsButton.onclick = () => {
 
                     function GetTeamName() {
                         if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
-                            return teamAName.innerHTML;
+                            return teamAName.textContent;
                         }
                         else {
-                            return teamBName.innerHTML;
+                            return teamBName.textContent;
                         }
                     }
 
                     const jsonData = {
                         id: Math.floor(Math.random() * 100000),
                         TeamName: GetTeamName(),
-                        name: playerProperties.playerNameProp.innerHTML,
-                        height: playerProperties.playerHeightProp.innerHTML,
-                        phy: playerProperties.playerPhyProp.innerHTML,
-                        def: playerProperties.playerDefProp.innerHTML,
-                        drrible: playerProperties.playerDrribleProp.innerHTML,
-                        pace: playerProperties.playerPaceProp.innerHTML,
-                        mainFoot: playerProperties.playerMainFootProp.innerHTML,
+                        name: playerProperties.playerNameProp.textContent,
+                        height: playerProperties.playerHeightProp.textContent,
+                        phy: playerProperties.playerPhyProp.textContent,
+                        def: playerProperties.playerDefProp.textContent,
+                        drrible: playerProperties.playerDrribleProp.textContent,
+                        pace: playerProperties.playerPaceProp.textContent,
+                        mainFoot: playerProperties.playerMainFootProp.textContent,
                     };
 
                     const playerId = jsonData.id;
@@ -579,7 +587,9 @@ formationButtons.forEach(element => {
                 }
             }
         });
+>>>>>>> parent of 29f42cb (updating green co;or)
     }
+
     playerAdditionButtons.forEach(playerAdditionButton => {
         playerAdditionButton.onclick = () => {
             Hide(playerAdditionButton);
@@ -623,11 +633,11 @@ formationButtons.forEach(element => {
                 }
 
                 CheckAllNumeric();
-                Hide(playersAdditionForm);
             };
         }
     });
 
+    var pictures = document.querySelectorAll(".picture");
     pictures.forEach(editButton => {
         editButton.onclick = () => {
 
@@ -642,62 +652,62 @@ formationButtons.forEach(element => {
             }
 
             Show(playersAdditionForm);
-            playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.innerHTML;
-            playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.innerHTML;
-            playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.innerHTML;
-            playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.innerHTML;
-            playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.innerHTML;
-            playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.innerHTML;
-            playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.innerHTML;
+            playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+            playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+            playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+            playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+            playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+            playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+            playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
             playerInputs.inputPlayerName.onfocus = () => {
-                playerInputs.inputPlayerName.value = playerProperties.playerNameProp.innerHTML;
+                playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
             }
 
             playerInputs.inputPlayerHeight.onfocus = () => {
-                playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.innerHTML;
+                playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
             }
 
             playerInputs.inputPlayerPhy.onfocus = () => {
-                playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.innerHTML;
+                playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
             }
 
             playerInputs.inputPlayerDef.onfocus = () => {
-                playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.innerHTML;
+                playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
             }
 
             playerInputs.inputPlayerDrrible.onfocus = () => {
-                playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.innerHTML;
+                playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
             }
 
             playerInputs.inputPlayerPace.onfocus = () => {
-                playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.innerHTML;
+                playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
             }
 
             playerInputs.inputPlayerMainFoot.onfocus = () => {
-                playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
+                playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
             }
             submitPlayerPropsButton.onclick = () => {
 
                 function GetTeamName() {
                     if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
-                        return teamAName.innerHTML;
+                        return teamAName.textContent;
                     }
                     else {
-                        return teamBName.innerHTML;
+                        return teamBName.textContent;
                     }
                 }
 
                 const jsonData = {
                     id: Math.floor(Math.random() * 100000),
                     TeamName: GetTeamName(),
-                    name: playerProperties.playerNameProp.innerHTML,
-                    height: playerProperties.playerHeightProp.innerHTML,
-                    phy: playerProperties.playerPhyProp.innerHTML,
-                    def: playerProperties.playerDefProp.innerHTML,
-                    drrible: playerProperties.playerDrribleProp.innerHTML,
-                    pace: playerProperties.playerPaceProp.innerHTML,
-                    mainFoot: playerProperties.playerMainFootProp.innerHTML,
+                    name: playerProperties.playerNameProp.textContent,
+                    height: playerProperties.playerHeightProp.textContent,
+                    phy: playerProperties.playerPhyProp.textContent,
+                    def: playerProperties.playerDefProp.textContent,
+                    drrible: playerProperties.playerDrribleProp.textContent,
+                    pace: playerProperties.playerPaceProp.textContent,
+                    mainFoot: playerProperties.playerMainFootProp.textContent,
                 };
 
                 const playerId = jsonData.id;
@@ -795,16 +805,12 @@ function CreatePlayerDiv() {
     `;
     playerDiv.style.background = 'white';
 
-
-    const playerAdditionButtons = playerDiv.querySelectorAll(".add-player-btn");
-
     playerAdditionButtons.forEach(playerAdditionButton => {
         playerAdditionButton.onclick = () => {
             Hide(playerAdditionButton);
-            playersAdditionForm.classList.remove(playersAdditionForm.classList[2]);
             submitPlayerPropsButton.onclick = () => {
+                Show(playersAdditionForm);
                 function PlayerAdded() {
-                    Show(playersAdditionForm);
                     let player = new Player(
                         playerAdditionButton,
                         playerInputs.inputPlayerName.value,
@@ -815,8 +821,13 @@ function CreatePlayerDiv() {
                         playerInputs.inputPlayerPace.value,
                         playerInputs.inputPlayerMainFoot.value,
                     );
+<<<<<<< HEAD
+                    console.log(playerInputs.inputPlayerHeight.value);
+                    console.log(playerInputs.inputPlayerDef.value);
+=======
 
-
+                    
+>>>>>>> parent of 29f42cb (updating green co;or)
                 }
 
                 function PlayerAddedNot() {
@@ -840,12 +851,12 @@ function CreatePlayerDiv() {
                         PlayerAddedNot();
                     }
                 }
+
                 CheckAllNumeric();
-                ClearInputs();
                 Hide(playersAdditionForm);
             };
-        };
-    })
+        }
+    });
 
     return playerDiv;
 }
@@ -884,62 +895,62 @@ pictures.forEach(editButton => {
         }
 
         Show(playersAdditionForm);
-        playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.innerHTML;
-        playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.innerHTML;
-        playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.innerHTML;
-        playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.innerHTML;
-        playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.innerHTML;
-        playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.innerHTML;
-        playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.innerHTML;
+        playerInputs.inputPlayerName.value = "Name: " + playerProperties.playerNameProp.textContent;
+        playerInputs.inputPlayerHeight.placeholder = "Height: " + playerProperties.playerHeightProp.textContent;
+        playerInputs.inputPlayerPhy.placeholder = "Physcique: " + playerProperties.playerPhyProp.textContent;
+        playerInputs.inputPlayerDef.placeholder = "Defence: " + playerProperties.playerDefProp.textContent;
+        playerInputs.inputPlayerDrrible.placeholder = "Drribles: " + playerProperties.playerDrribleProp.textContent;
+        playerInputs.inputPlayerPace.placeholder = "Pace: " + playerProperties.playerPaceProp.textContent;
+        playerInputs.inputPlayerMainFoot.value = "Main foot: " + playerProperties.playerMainFootProp.textContent;
 
         playerInputs.inputPlayerName.onfocus = () => {
-            playerInputs.inputPlayerName.value = playerProperties.playerNameProp.innerHTML;
+            playerInputs.inputPlayerName.value = playerProperties.playerNameProp.textContent;
         }
 
         playerInputs.inputPlayerHeight.onfocus = () => {
-            playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.innerHTML;
+            playerInputs.inputPlayerHeight.value = playerProperties.playerHeightProp.textContent;
         }
 
         playerInputs.inputPlayerPhy.onfocus = () => {
-            playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.innerHTML;
+            playerInputs.inputPlayerPhy.value = playerProperties.playerPhyProp.textContent;
         }
 
         playerInputs.inputPlayerDef.onfocus = () => {
-            playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.innerHTML;
+            playerInputs.inputPlayerDef.value = playerProperties.playerDefProp.textContent;
         }
 
         playerInputs.inputPlayerDrrible.onfocus = () => {
-            playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.innerHTML;
+            playerInputs.inputPlayerDrrible.value = playerProperties.playerDrribleProp.textContent;
         }
 
         playerInputs.inputPlayerPace.onfocus = () => {
-            playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.innerHTML;
+            playerInputs.inputPlayerPace.value = playerProperties.playerPaceProp.textContent;
         }
 
         playerInputs.inputPlayerMainFoot.onfocus = () => {
-            playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
+            playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.textContent;
         }
         submitPlayerPropsButton.onclick = () => {
 
             function GetTeamName() {
                 if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
-                    return teamAName.innerHTML;
+                    return teamAName.textContent;
                 }
                 else {
-                    return teamBName.innerHTML;
+                    return teamBName.textContent;
                 }
             }
 
             const jsonData = {
                 id: Math.floor(Math.random() * 100000),
                 TeamName: GetTeamName(),
-                name: playerProperties.playerNameProp.innerHTML,
-                height: playerProperties.playerHeightProp.innerHTML,
-                phy: playerProperties.playerPhyProp.innerHTML,
-                def: playerProperties.playerDefProp.innerHTML,
-                drrible: playerProperties.playerDrribleProp.innerHTML,
-                pace: playerProperties.playerPaceProp.innerHTML,
-                mainFoot: playerProperties.playerMainFootProp.innerHTML,
+                name: playerProperties.playerNameProp.textContent,
+                height: playerProperties.playerHeightProp.textContent,
+                phy: playerProperties.playerPhyProp.textContent,
+                def: playerProperties.playerDefProp.textContent,
+                drrible: playerProperties.playerDrribleProp.textContent,
+                pace: playerProperties.playerPaceProp.textContent,
+                mainFoot: playerProperties.playerMainFootProp.textContent,
             };
 
             const playerId = jsonData.id;
