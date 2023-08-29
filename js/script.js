@@ -628,4 +628,3 @@ playerAdditionButtons.forEach(playerAdditionButton => {
         Hide(playersAdditionForm);
     }
 });
-
