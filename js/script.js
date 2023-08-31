@@ -78,7 +78,6 @@ class Team {
 //Buttons
 const createMatchButton = document.querySelector('.create-match-section__btn');
 const teamFormSubmitButton = document.querySelector('#teams-form__submit-btn');
-var playerAdditionButtons = document.querySelectorAll('.add-player-btn');
 
 //Containers
 const createMatchContainer = document.querySelector('.create-match-section');
@@ -163,18 +162,20 @@ formationButtons.forEach(element => {
     element.onclick = () => {
         formationForm.style.display = 'block';
         Show(formationForm);
-
-        setTimeout(() => {
-            var formationSubmitButton = document.querySelector('.set-formation');
-            AddClickListener(formationSubmitButton, HandleFormationSubmission(element));
-            formationForm.style.display = 'none';
-        }, 4000);
+        var formationSubmitButton = document.querySelector('.set-formation');
+        // RemoveListenersFromCollection(formationSubmitButton);
+        AddClickListener(formationSubmitButton, HandleFormationSubmission);
+        MakePlayerAdditionButtonsInteractable();
     }
 
 });
 
-function HandleFormationSubmission(parents) {
-    var currentFormedTeam = GetParentTeamContainer(parents);
+function IsHTMLCollectionOrNodeList(input) {
+    return ((input instanceof HTMLCollection) || (input instanceof NodeList));
+}
+
+function HandleFormationSubmission() {
+    /*var currentFormedTeam = GetParentTeamContainer(parents);
     const inputFormationValue = inputFormation.value;
     var sum = 0;
 
@@ -197,6 +198,11 @@ function HandleFormationSubmission(parents) {
             currentFormedTeam.appendChild(parentPlayerDiv);
         }
     }
+*/
+    Hide(formationForm);
+    formationForm.style.display = 'none';
+
+    console.log("eventListenerCalled");
 }
 
 function CreatePlayerDiv() {
@@ -281,53 +287,75 @@ buttons.forEach((button) => {
     });
 });
 
-playerAdditionButtons.forEach(playerAdditionButton => {
-    playerAdditionButton.onclick = () => {
+function RemoveListenersFromCollection(collection) {
 
-        Hide(playerAdditionButton);
-        submitPlayerPropsButton.onclick = () => {
-            Show(playersAdditionForm);
-            function PlayerAdded() {
-                console.log(playerAdditionButtons);
-
-                let player = new Player(
-                    playerAdditionButton,
-                    playerInputs.inputPlayerName.value,
-                    playerInputs.inputPlayerHeight.value,
-                    playerInputs.inputPlayerDef.value,
-                    playerInputs.inputPlayerPhy.value,
-                    playerInputs.inputPlayerDrrible.value,
-                    playerInputs.inputPlayerPace.value,
-                    playerInputs.inputPlayerMainFoot.value,
-                );
-            }
-
-            function PlayerAddedNot() {
-                alert(`Form is not correctly filled.
-                Make sure you would add text in name and foot of a player
-                and add numbers in the remaining inputs.`);
-            }
-
-            function CheckAllNumeric() {
-                if (
-                    (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
-                    (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
-                    (ValidateInteger(playerInputs.inputPlayerPhy.value)) &&
-                    (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
-                    (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
-                    alert('Your Registration number has accepted....');
-                    PlayerAdded();
-                }
-                else {
-                    alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
-                    PlayerAddedNot();
-                }
-            }
-
-            CheckAllNumeric();
-        };
+    if (IsHTMLCollectionOrNodeList(collection)) {
+        collection.forEach(collectionObject => {
+            removeOnClickListeners(collectionObject);
+        })
     }
-});
+    else {
+        removeOnClickListeners(collection);
+    }
+
+}
+
+function removeOnClickListeners(element) {
+    const clonedElement = element.cloneNode(true);
+    element.parentNode.replaceChild(clonedElement, element);
+}
+
+function MakePlayerAdditionButtonsInteractable() {
+    var playerAdditionButtons = document.querySelectorAll('.add-player-btn');
+    RemoveListenersFromCollection(playerAdditionButtons);
+    playerAdditionButtons.forEach(playerAdditionButton => {
+        playerAdditionButton.onclick = () => {
+            console.log("event added")
+            Hide(playerAdditionButton);
+            Show(playersAdditionForm);
+            submitPlayerPropsButton.onclick = () => {
+                function PlayerAdded() {
+                    console.log(playerAdditionButtons);
+
+                    let player = new Player(
+                        playerAdditionButton,
+                        playerInputs.inputPlayerName.value,
+                        playerInputs.inputPlayerHeight.value,
+                        playerInputs.inputPlayerDef.value,
+                        playerInputs.inputPlayerPhy.value,
+                        playerInputs.inputPlayerDrrible.value,
+                        playerInputs.inputPlayerPace.value,
+                        playerInputs.inputPlayerMainFoot.value,
+                    );
+                }
+
+                function PlayerAddedNot() {
+                    alert(`Form is not correctly filled.
+                    Make sure you would add text in name and foot of a player
+                    and add numbers in the remaining inputs.`);
+                }
+
+                function CheckAllNumeric() {
+                    if (
+                        (ValidateInteger(playerInputs.inputPlayerDef.value)) &&
+                        (ValidateInteger(playerInputs.inputPlayerDrrible.value)) &&
+                        (ValidateInteger(playerInputs.inputPlayerPhy.value)) &&
+                        (ValidateInteger(playerInputs.inputPlayerPace.value)) &&
+                        (ValidateInteger(playerInputs.inputPlayerHeight.value))) {
+                        alert('Your Registration number has accepted....');
+                        PlayerAdded();
+                    }
+                    else {
+                        alert('Please input numeric characters only for height, physcique, defence, drribles and pace');
+                        PlayerAddedNot();
+                    }
+                }
+
+                CheckAllNumeric();
+            };
+        }
+    });
+}
 
 var pictures = document.querySelectorAll(".picture");
 pictures.forEach(editButton => {
