@@ -34,7 +34,7 @@ body {
   justify-content: center;
 }
 
-.container{
+.container {
   overflow: hidden;
 }
 
@@ -95,7 +95,6 @@ body {
   flex-direction: column-reverse;
 }
 
-
 .picture {
   width: 100px;
   height: 100px;
@@ -115,7 +114,7 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .player {
@@ -237,17 +236,12 @@ button {
 }
 
 .formation-btn {
-  width: 18rem;
-  margin: 1rem auto;
+  width: 20%;
+  margin-left: 41%;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1rem;
-  position: relative;
-  top: 54%;
-  left: 8%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  right: 10vw;
+
 }
 
 .flex-col {
