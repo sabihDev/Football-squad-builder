@@ -168,7 +168,6 @@ formationButtons.forEach(element => {
         // RemoveListenersFromCollection(formationSubmitButton);
         teamToBeFormed = GetParentTeamContainer(element);
         AddClickListener(formationSubmitButton, HandleFormationSubmission);
-        MakePlayerAdditionButtonsInteractable();
     }
 
 });
