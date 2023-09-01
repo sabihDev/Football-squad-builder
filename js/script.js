@@ -157,13 +157,16 @@ var playerInputs = {
 var formationButtons = document.querySelectorAll(".formation-btn");
 var formationForm = document.querySelector(".formation-decider");
 var inputFormation = document.querySelector('.input-formation');
+var teamToBeFormed;
 
 formationButtons.forEach(element => {
-    element.onclick = () => {
+    AddClickListener(element,MakeFormation)
+    function MakeFormation ()  {
         formationForm.style.display = 'block';
         Show(formationForm);
         var formationSubmitButton = document.querySelector('.set-formation');
         // RemoveListenersFromCollection(formationSubmitButton);
+        teamToBeFormed = GetParentTeamContainer(element);
         AddClickListener(formationSubmitButton, HandleFormationSubmission);
         MakePlayerAdditionButtonsInteractable();
     }
@@ -175,7 +178,6 @@ function IsHTMLCollectionOrNodeList(input) {
 }
 
 function HandleFormationSubmission() {
-    /*var currentFormedTeam = GetParentTeamContainer(parents);
     const inputFormationValue = inputFormation.value;
     var sum = 0;
 
@@ -193,12 +195,10 @@ function HandleFormationSubmission() {
 
             }
 
-            Hide(parents);
-
-            currentFormedTeam.appendChild(parentPlayerDiv);
+            Hide(teamToBeFormed.childNodes[3]);
+            teamToBeFormed.appendChild(parentPlayerDiv);
         }
     }
-*/
     Hide(formationForm);
     formationForm.style.display = 'none';
 
@@ -309,11 +309,13 @@ function MakePlayerAdditionButtonsInteractable() {
     var playerAdditionButtons = document.querySelectorAll('.add-player-btn');
     RemoveListenersFromCollection(playerAdditionButtons);
     playerAdditionButtons.forEach(playerAdditionButton => {
-        playerAdditionButton.onclick = () => {
+        AddClickListener(playerAdditionButton,MakePlayer)
+        function MakePlayer () {
             console.log("event added")
             Hide(playerAdditionButton);
             Show(playersAdditionForm);
-            submitPlayerPropsButton.onclick = () => {
+            AddClickListener(submitPlayerPropsButton,HandlePlayerPropertiesSubmission);
+            function HandlePlayerPropertiesSubmission () {
                 function PlayerAdded() {
                     console.log(playerAdditionButtons);
 
@@ -359,7 +361,8 @@ function MakePlayerAdditionButtonsInteractable() {
 
 var pictures = document.querySelectorAll(".picture");
 pictures.forEach(editButton => {
-    editButton.onclick = () => {
+    AddClickListener(editButton,EditPlayerProperties);
+    function EditPlayerProperties () {
 
         let playerProperties = {
             playerNameProp: editButton.parentElement.childNodes[5].childNodes[1],
@@ -407,7 +410,9 @@ pictures.forEach(editButton => {
         playerInputs.inputPlayerMainFoot.onfocus = () => {
             playerInputs.inputPlayerMainFoot.value = playerProperties.playerMainFootProp.innerHTML;
         }
-        submitPlayerPropsButton.onclick = () => {
+
+        AddClickListener(submitPlayerPropsButton,HandleEditPlayerProperties);
+        function HandleEditPlayerProperties () {
 
             function GetTeamName() {
                 if (GetParentInHierarchy(4, playerProperties.playerNameProp) == teamAPlayersContainer) {
