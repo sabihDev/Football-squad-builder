@@ -195,7 +195,11 @@ function HandleFormationSubmission() {
 
             }
 
-            Hide(teamToBeFormed.childNodes[3]);
+            if (teamToBeFormed === teamAPlayersContainer) {
+                Hide(teamToBeFormed.childNodes[3]);
+            }else{
+                teamToBeFormed.childNodes[1].style.display='none';
+            }
             teamToBeFormed.appendChild(parentPlayerDiv);
         }
     }
