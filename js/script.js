@@ -363,7 +363,7 @@ function MakePlayerAdditionButtonsInteractable() {
                 CheckAllNumeric();
             };
         }
-        ClearInputs();
+        ClearInputs();  
     });
 }
 
