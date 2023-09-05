@@ -208,6 +208,7 @@ function HandleFormationSubmission() {
     console.log("eventListenerCalled");
     MakePlayerAdditionButtonsInteractable();
     MakeEditButtonInteractable();
+    MakeTooltipInteractable();
 }
 
 function CreatePlayerDiv() {
@@ -217,9 +218,9 @@ function CreatePlayerDiv() {
     // Set the innerHTML for playerDiv
     playerDiv.innerHTML = `
     <div class="add-player-btn">+</div>
-    <div class="picture hidden"></div>
-    <div class="name hidden tooltip">
-      Name: <span ></span>
+    <div class="picture hidden tooltip"></div>
+    <div class="name hidden">
+        Name: <span ></span>
       <span class="edit-btn">
         <span class="material-symbols-outlined"> edit </span>
       </span>
@@ -269,28 +270,28 @@ function GetParentTeamContainer(button) {
     }
 }
 
-const buttons = document.querySelectorAll('.tooltip');
-buttons.forEach((button) => {
-    const tooltips = document.querySelectorAll('.tooltip-text');
-
-    tooltips.forEach((tooltip) => {
-
+function MakeTooltipInteractable() {
+    var buttons = document.querySelectorAll('.tooltip');
+    buttons.forEach((button) => {
+        var tooltip = button.parentElement.childNodes[7];
 
         button.addEventListener('mouseover', (event) => {
+            console.log(tooltip);
             const mouseX = event.clientX;
             const mouseY = event.clientY;
             tooltip.style.position = 'fixed';
             tooltip.style.left = mouseX + 'px';
             tooltip.style.top = mouseY + 20 + 'px';
-            Show(tooltip);
+            tooltip.style.display='block';
         });
 
         button.addEventListener('mouseout', () => {
+            console.log(tooltip);
             tooltip.style.position = 'absolute';
-            Hide(tooltip);
+            tooltip.style.display='none';
         });
     });
-});
+}
 
 function RemoveListenersFromCollection(collection) {
 
@@ -360,9 +361,9 @@ function MakePlayerAdditionButtonsInteractable() {
                 }
 
                 CheckAllNumeric();
-                ClearInputs();
             };
         }
+        ClearInputs();
     });
 }
 
@@ -371,7 +372,6 @@ function MakeEditButtonInteractable() {
     pictures.forEach(editButton => {
         AddClickListener(editButton, EditPlayerProperties);
         function EditPlayerProperties() {
-
             let playerProperties = {
                 playerNameProp: editButton.parentElement.childNodes[5].childNodes[1],
                 playerHeightProp: editButton.parentElement.childNodes[7].childNodes[1].childNodes[1],
@@ -472,7 +472,10 @@ function MakeEditButtonInteractable() {
                     let jsonString = JSON.stringify(jsonData);
                     players = JSON.parse(JSON.stringify(jsonString));
                 }
+                console.log(newName);
             }
         }
+
     });
+    ClearInputs();
 }
